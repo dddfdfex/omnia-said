@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أمنية سعيد — معلمة الكيمياء</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* ============================================================
+   TOKENS
+============================================================ */
+:root {
+  --ink:        #0C0C0C;
+  --ink2:       #141414;
+  --ink3:       #1E1E1E;
+  --paper:      #F4F0E8;
+  --paper2:     #EAE5D8;
+  --red:        #B91C1C;
+  --red2:       #991818;
+  --red-pale:   #3D0A0A;
+  --gold:       #C9A84C;
+  --white:      #FFFFFF;
+  --muted:      rgba(244,240,232,0.38);
+  --muted2:     rgba(244,240,232,0.55);
+  --border:     rgba(244,240,232,0.09);
+  --border2:    rgba(201,168,76,0.25);
+  --ff-display: 'Cormorant Garamond', serif;
+  --ff-ui:      'Cairo', sans-serif;
+  --ff-mono:    'DM Mono', monospace;
+}
+body.en {
+  direction: ltr;
+  --ff-display: 'Cormorant Garamond', serif;
+}
+
+/* ============================================================
+   RESET + BASE
+============================================================ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--ff-ui);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ============================================================
+   CUSTOM CURSOR
+============================================================ */
+.cursor-dot {
+  position: fixed;
+  width: 6px; height: 6px;
+  background: var(--red);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%,-50%);
+  transition: transform .1s ease, width .25s ease, height .25s ease, background .25s ease;
+}
+.cursor-ring {
+  position: fixed;
+  width: 34px; height: 34px;
+  border: 1px solid rgba(185,28,28,.45);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: transform .18s cubic-bezier(.25,.46,.45,.94),
+              width .3s ease, height .3s ease, border-color .3s ease;
+}
+body:has(a:hover) .cursor-dot  { width: 10px; height: 10px; background: var(--gold); }
+body:has(a:hover) .cursor-ring { width: 48px; height: 48px; border-color: rgba(201,168,76,.5); }
+
+@media (hover: none) { .cursor-dot, .cursor-ring { display: none; } }
+
+/* ============================================================
+   LOADER
+============================================================ */
+#loader {
+  position: fixed; inset: 0;
+  background: var(--ink);
+  z-index: 9000;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  gap: 0;
+  transition: opacity 1.2s ease, visibility 1.2s ease;
+  overflow: hidden;
+}
+#loader.out { opacity: 0; visibility: hidden; pointer-events: none; }
+
+/* horizontal rule that wipes in */
+.ld-rule {
+  position: absolute;
+  top: 50%; left: 0;
+  width: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+  animation: ldRuleWipe 2s cubic-bezier(.77,0,.18,1) 0.3s forwards;
+}
+@keyframes ldRuleWipe { to { width: 100%; } }
+
+.ld-content {
+  position: relative;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 32px;
+}
+
+.ld-logo-box {
+  width: 110px; height: 110px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.ld-logo-box img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  animation: ldLogoBob 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(185,28,28,.6));
+}
+@keyframes ldLogoBob {
+  0%,100% { transform: translateY(0); filter: drop-shadow(0 0 16px rgba(185,28,28,.5)); }
+  50%     { transform: translateY(-6px); filter: drop-shadow(0 0 32px rgba(185,28,28,.9)); }
+}
+
+/* corner brackets */
+.ld-bracket {
+  position: absolute;
+  width: 18px; height: 18px;
+  border-color: var(--red);
+  border-style: solid;
+  opacity: 0;
+  animation: ldBrk .5s ease .8s forwards;
+}
+@keyframes ldBrk { to { opacity: .7; } }
+.ld-bracket.tl { top:-8px; left:-8px; border-width:1px 0 0 1px; }
+.ld-bracket.tr { top:-8px; right:-8px; border-width:1px 1px 0 0; }
+.ld-bracket.bl { bottom:-8px; left:-8px; border-width:0 0 1px 1px; }
+.ld-bracket.br { bottom:-8px; right:-8px; border-width:0 1px 1px 0; }
+
+/* number */
+.ld-num {
+  font-family: var(--ff-mono);
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: var(--muted2);
+  text-transform: uppercase;
+  min-height: 18px;
+}
+
+/* thin bar */
+.ld-bar-wrap {
+  width: 220px; height: 1px;
+  background: var(--border);
+  position: relative;
+  overflow: visible;
+}
+.ld-bar-fill {
+  position: absolute; top: 0; left: 0;
+  height: 100%; width: 0%;
+  background: var(--red);
+  transition: width .04s linear;
+}
+.ld-bar-fill::after {
+  content: '';
+  position: absolute; right: -1px; top: 50%;
+  transform: translateY(-50%);
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--paper);
+  box-shadow: 0 0 10px 3px rgba(185,28,28,.8);
+}
+
+/* ============================================================
+   LANGUAGE TOGGLE
+============================================================ */
+.lang-pill {
+  position: fixed;
+  top: 28px; left: 28px;
+  z-index: 500;
+  display: flex; align-items: center; gap: 0;
+  border: 1px solid var(--border2);
+  border-radius: 2px;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeIn .6s ease 2.4s forwards;
+}
+body.en .lang-pill { left: auto; right: 28px; }
+@keyframes fadeIn { to { opacity: 1; } }
+.lang-opt {
+  padding: 7px 16px;
+  font-size: 11px;
+  font-family: var(--ff-mono);
+  letter-spacing: 2px;
+  cursor: pointer;
+  color: var(--muted2);
+  background: transparent;
+  border: none;
+  transition: all .25s ease;
+}
+.lang-opt.active { background: var(--red); color: var(--white); }
+.lang-opt:not(.active):hover { color: var(--paper); }
+
+/* ============================================================
+   PAGE LAYOUT
+============================================================ */
+.page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  opacity: 0;
+  animation: fadeIn .8s ease 2s forwards;
+}
+
+/* vertical red rule between columns */
+.page::after {
+  content: '';
+  position: absolute;
+  top: 10%; bottom: 10%;
+  left: 50%; transform: translateX(-50%);
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--red) 20%, var(--red) 80%, transparent);
+  opacity: .3;
+}
+
+/* ============================================================
+   LEFT — EDITORIAL COLUMN
+============================================================ */
+.col-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 60px 64px 52px 52px;
+  position: relative;
+  overflow: hidden;
+}
+body.en .col-left { padding: 60px 52px 52px 64px; order: 2; }
+
+/* giant watermark number */
+.col-left::before {
+  content: 'OS';
+  position: absolute;
+  bottom: -20px; left: -10px;
+  font-family: var(--ff-display);
+  font-size: clamp(160px, 20vw, 240px);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(244,240,232,.025);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* top meta bar */
+.meta-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+}
+.meta-issue {
+  font-family: var(--ff-mono);
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.meta-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--red);
+  animation: metaBlink 2s ease infinite;
+}
+@keyframes metaBlink { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+
+/* headline */
+.headline-block { position: relative; }
+
+.kicker {
+  font-family: var(--ff-mono);
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--red);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.kicker::before {
+  content: '';
+  display: inline-block;
+  width: 24px; height: 1px;
+  background: var(--red);
+}
+
+.name-display {
+  font-family: var(--ff-display);
+  font-size: clamp(52px, 6vw, 84px);
+  font-weight: 300;
+  line-height: 1.0;
+  color: var(--paper);
+  letter-spacing: -1px;
+}
+.name-display em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.subtitle {
+  margin-top: 20px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted2);
+  line-height: 1.8;
+  max-width: 380px;
+}
+
+/* credentials as editorial pull-quotes */
+.creds {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.cred-row {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  transform: translateX(-8px);
+  opacity: 0;
+  animation: credSlide .5s ease forwards;
+}
+.cred-row:nth-child(1) { animation-delay: 2.1s; }
+.cred-row:nth-child(2) { animation-delay: 2.25s; }
+.cred-row:nth-child(3) { animation-delay: 2.4s; }
+.cred-row:nth-child(4) { animation-delay: 2.55s; }
+body.en .cred-row { transform: translateX(8px); }
+@keyframes credSlide { to { transform: translateX(0); opacity: 1; } }
+
+.cred-idx {
+  font-family: var(--ff-mono);
+  font-size: 9px;
+  color: var(--red);
+  letter-spacing: 1px;
+  min-width: 22px;
+  opacity: .7;
+}
+.cred-txt {
+  font-size: 13px;
+  color: var(--muted2);
+  line-height: 1.5;
+}
+
+/* stat strip */
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--border2);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 40px;
+}
+.stat-cell {
+  padding: 18px 20px;
+  text-align: center;
+  border-left: 1px solid var(--border2);
+  position: relative;
+  transition: background .3s;
+}
+.stat-cell:last-child { border-left: none; }
+body.en .stat-cell { border-left: none; border-right: 1px solid var(--border2); }
+body.en .stat-cell:last-child { border-right: none; }
+.stat-cell:hover { background: rgba(185,28,28,.07); }
+.stat-num {
+  font-family: var(--ff-display);
+  font-size: 38px;
+  font-weight: 600;
+  color: var(--paper);
+  line-height: 1;
+}
+.stat-num sup { font-size: .5em; color: var(--red); vertical-align: top; margin-top: 6px; display: inline-block; }
+.stat-lbl {
+  font-family: var(--ff-mono);
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+/* ============================================================
+   RIGHT — IMAGE COLUMN
+============================================================ */
+.col-right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+body.en .col-right { order: 1; }
+
+/* background texture stripe */
+.col-right::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0px,
+      transparent 40px,
+      rgba(244,240,232,.012) 40px,
+      rgba(244,240,232,.012) 41px
+    );
+  pointer-events: none;
+}
+
+/* red accent strip left edge */
+.col-right::after {
+  content: '';
+  position: absolute;
+  top: 15%; bottom: 15%;
+  right: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, var(--red) 30%, var(--red) 70%, transparent);
+  opacity: .4;
+}
+body.en .col-right::after { right: auto; left: 0; }
+
+/* image */
+.img-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 0;
+}
+.img-wrap img {
+  height: 92%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
+  filter: drop-shadow(-30px 0 60px rgba(0,0,0,.8));
+  animation: imgFloat 6s ease-in-out infinite;
+  position: relative; z-index: 2;
+}
+@keyframes imgFloat {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+/* gradient overlay bottom */
+.img-fade {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 40%;
+  background: linear-gradient(to top, var(--ink) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 3;
+}
+/* gradient top */
+.img-fade-top {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 25%;
+  background: linear-gradient(to bottom, var(--ink) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* name plate at bottom right */
+.name-plate {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  z-index: 10;
+  padding: 28px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* links */
+.links-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.link-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  font-size: 12px;
+  font-family: var(--ff-mono);
+  letter-spacing: 1px;
+  color: var(--muted2);
+  text-decoration: none;
+  background: rgba(12,12,12,.7);
+  backdrop-filter: blur(12px);
+  transition: all .3s ease;
+  cursor: none;
+}
+.link-chip i { font-size: 13px; }
+.link-chip:hover {
+  border-color: var(--red);
+  color: var(--paper);
+  background: rgba(185,28,28,.12);
+}
+.link-chip:hover i { color: var(--red); }
+
+/* big social row */
+.social-row {
+  display: flex; gap: 10px; flex-wrap: wrap;
+}
+.soc-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 11px 20px;
+  text-decoration: none;
+  font-size: 12px;
+  font-family: var(--ff-mono);
+  letter-spacing: 1.5px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background: rgba(12,12,12,.8);
+  backdrop-filter: blur(16px);
+  color: var(--muted2);
+  transition: all .3s ease;
+  cursor: none;
+  white-space: nowrap;
+}
+.soc-btn i { font-size: 15px; transition: color .3s; }
+.soc-btn:hover { border-color: var(--gold); color: var(--paper); background: rgba(201,168,76,.08); }
+.soc-btn:hover i { color: var(--gold); }
+.soc-btn.primary {
+  border-color: var(--red);
+  color: var(--paper);
+  background: rgba(185,28,28,.15);
+}
+.soc-btn.primary i { color: var(--red); }
+.soc-btn.primary:hover { background: rgba(185,28,28,.3); box-shadow: 0 0 24px rgba(185,28,28,.2); }
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer {
+  position: relative; z-index: 10;
+  background: var(--ink2);
+  border-top: 1px solid var(--border);
+  padding: 22px 52px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+}
+.foot-copy {
+  font-family: var(--ff-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.foot-powered {
+  display: flex; align-items: center; gap: 12px;
+}
+.foot-powered-label {
+  font-family: var(--ff-mono);
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.foot-logo img {
+  height: 44px; width: auto; max-width: 160px;
+  object-fit: contain;
+  opacity: .75;
+  transition: opacity .3s, filter .3s;
+  filter: drop-shadow(0 0 6px rgba(185,28,28,.25));
+  vertical-align: middle;
+}
+.foot-logo img:hover { opacity: 1; filter: drop-shadow(0 0 14px rgba(185,28,28,.55)); }
+
+/* ============================================================
+   NOISE TEXTURE OVERLAY
+============================================================ */
+.noise {
+  position: fixed; inset: 0; z-index: 8000;
+  pointer-events: none;
+  opacity: .03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+/* ============================================================
+   SCAN LINE
+============================================================ */
+.scanline {
+  position: fixed; inset: 0; z-index: 7999;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,.04) 2px,
+    rgba(0,0,0,.04) 4px
+  );
+}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 900px) {
+  .page {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+  .page::after { display: none; }
+
+  .col-right {
+    height: 55vmax;
+    order: -1;
+  }
+  body.en .col-right { order: -1; }
+
+  .col-left {
+    padding: 40px 28px 40px;
+    order: 0;
+  }
+  body.en .col-left { order: 0; padding: 40px 28px; }
+
+  .col-right::after { display: none; }
+
+  .lang-pill { top: 16px; left: 16px; }
+  body.en .lang-pill { left: auto; right: 16px; }
+
+  .name-display { font-size: 48px; }
+
+  footer { padding: 18px 28px; }
+
+  .social-row, .links-row { gap: 8px; }
+  .soc-btn { padding: 9px 14px; font-size: 11px; }
+}
+
+@media (max-width: 480px) {
+  .stat-strip { grid-template-columns: repeat(3,1fr); }
+  .stat-num { font-size: 28px; }
+  .name-display { font-size: 38px; }
+  .soc-btn span { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Cursor -->
+<div class="cursor-dot" id="cd"></div>
+<div class="cursor-ring" id="cr"></div>
+
+<!-- Texture + Scan -->
+<div class="noise"></div>
+<div class="scanline"></div>
+
+<!-- ======================================================
+     LOADER
+====================================================== -->
+<div id="loader">
+  <div class="ld-rule"></div>
+  <div class="ld-content">
+    <div class="ld-logo-box">
+      <div class="ld-bracket tl"></div>
+      <div class="ld-bracket tr"></div>
+      <div class="ld-bracket bl"></div>
+      <div class="ld-bracket br"></div>
+      <img src="logo.png" alt="Logo" onerror="this.style.opacity=0">
+    </div>
+    <div class="ld-bar-wrap">
+      <div class="ld-bar-fill" id="ldf"></div>
+    </div>
+    <div class="ld-num" id="ldn">— 000 —</div>
+  </div>
+</div>
+
+<!-- ======================================================
+     LANGUAGE TOGGLE
+====================================================== -->
+<div class="lang-pill">
+  <button class="lang-opt active" id="btnAR" onclick="setLang('ar')">AR</button>
+  <button class="lang-opt"        id="btnEN" onclick="setLang('en')">EN</button>
+</div>
+
+<!-- ======================================================
+     PAGE
+====================================================== -->
+<div class="page">
+
+  <!-- LEFT: EDITORIAL INFO -->
+  <div class="col-left">
+
+    <div>
+      <!-- Meta bar -->
+      <div class="meta-bar">
+        <span class="meta-issue" id="meta-issue">معلمة الكيمياء والعلوم — ٢٠٢٧</span>
+        <div class="meta-dot"></div>
+      </div>
+
+      <!-- Headline -->
+      <div class="headline-block">
+        <p class="kicker" id="kicker">Chemistry & Science Educator</p>
+        <h1 class="name-display" id="name-display">
+          أمنية<br><em>سعيد</em>
+        </h1>
+        <p class="subtitle" id="subtitle">
+          معلمة الكيمياء والعلوم المتكاملة لجميع مراحل الثانوية العامة — بخبرة تسع سنوات وشغف حقيقي بالتعليم.
+        </p>
+      </div>
+
+      <!-- Credentials -->
+      <div class="creds">
+        <div class="cred-row">
+          <span class="cred-idx">01</span>
+          <span class="cred-txt" id="c1">بكالوريوس علوم وتربية</span>
+        </div>
+        <div class="cred-row">
+          <span class="cred-idx">02</span>
+          <span class="cred-txt" id="c2">شهادة التربية الخاصة لتحضير الماجستير</span>
+        </div>
+        <div class="cred-row">
+          <span class="cred-idx">03</span>
+          <span class="cred-txt" id="c3">شهادة العلوم باللغة الإنجليزية</span>
+        </div>
+        <div class="cred-row">
+          <span class="cred-idx">04</span>
+          <span class="cred-txt" id="c4">ماجستير في التدريس</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stat-strip">
+      <div class="stat-cell">
+        <div class="stat-num">9<sup>+</sup></div>
+        <div class="stat-lbl" id="sl1">سنوات</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">∞</div>
+        <div class="stat-lbl" id="sl2">طالب</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">5<sup>★</sup></div>
+        <div class="stat-lbl" id="sl3">تقييم</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT: IMAGE + LINKS -->
+  <div class="col-right">
+    <div class="img-fade-top"></div>
+    <div class="img-wrap">
+      <img src="teacher.png" alt="أمنية سعيد"
+        onerror="this.style.opacity=0">
+    </div>
+    <div class="img-fade"></div>
+
+    <div class="name-plate">
+      <!-- Platform + WhatsApp -->
+      <div class="links-row">
+        <a class="link-chip primary soc-btn" href="https://omnia-said.com" target="_blank">
+          <i class="fas fa-globe"></i>
+          <span id="lb1">المنصة الرسمية</span>
+        </a>
+        <a class="link-chip soc-btn" href="https://whatsapp.com/channel/0029Vb6T7xGHbFVAmrhO5k3r" target="_blank">
+          <i class="fab fa-whatsapp"></i>
+          <span id="lb5">واتساب</span>
+        </a>
+      </div>
+
+      <!-- Social -->
+      <div class="social-row">
+        <a class="soc-btn" href="https://www.facebook.com/Mrs.Omnia.Said/about?locale=ar_AR" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+          <span id="lb2">فيسبوك</span>
+        </a>
+        <a class="soc-btn" href="https://www.youtube.com/@Mrsomniasaidofficially" target="_blank">
+          <i class="fab fa-youtube"></i>
+          <span id="lb3">يوتيوب</span>
+        </a>
+        <a class="soc-btn" href="https://www.tiktok.com/@omniasaid27" target="_blank">
+          <i class="fab fa-tiktok"></i>
+          <span id="lb4">تيك توك</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<!-- FOOTER -->
+<footer>
+  <span class="foot-copy" id="foot-copy">© 2027 — أمنية سعيد — جميع الحقوق محفوظة</span>
+  <div class="foot-powered">
+    <span class="foot-powered-label">Powered By</span>
+    <div class="foot-logo">
+      <img src="zy-logo.png" alt="ZY Brothers Studio" onerror="this.style.display='none'">
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   CURSOR
+============================================================ */
+const cd = document.getElementById('cd');
+const cr = document.getElementById('cr');
+let mx=0,my=0, rx=0,ry=0;
+document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+(function trackRing(){
+  rx += (mx-rx)*.12;
+  ry += (my-ry)*.12;
+  cd.style.left = mx+'px'; cd.style.top = my+'px';
+  cr.style.left = rx+'px'; cr.style.top  = ry+'px';
+  requestAnimationFrame(trackRing);
+})();
+
+/* ============================================================
+   LOADER
+============================================================ */
+(function(){
+  const fill = document.getElementById('ldf');
+  const num  = document.getElementById('ldn');
+  let p = 0;
+  const iv = setInterval(()=>{
+    const step = p < 65 ? 1.5 : p < 88 ? 0.7 : 0.28;
+    p = Math.min(p+step, 100);
+    fill.style.width = p+'%';
+    num.textContent  = '— ' + String(Math.floor(p)).padStart(3,'0') + ' —';
+    if(p >= 100){
+      clearInterval(iv);
+      setTimeout(()=> document.getElementById('loader').classList.add('out'), 500);
+    }
+  }, 28);
+})();
+
+/* ============================================================
+   LANGUAGE
+============================================================ */
+const T = {
+  ar: {
+    lang:'ar', dir:'rtl',
+    metaIssue: 'معلمة الكيمياء والعلوم — ٢٠٢٧',
+    kicker: 'Chemistry & Science Educator',
+    nameDisplay: 'أمنية<br><em>سعيد</em>',
+    subtitle: 'معلمة الكيمياء والعلوم المتكاملة لجميع مراحل الثانوية العامة — بخبرة تسع سنوات وشغف حقيقي بالتعليم.',
+    c1:'بكالوريوس علوم وتربية',
+    c2:'شهادة التربية الخاصة لتحضير الماجستير',
+    c3:'شهادة العلوم باللغة الإنجليزية',
+    c4:'ماجستير في التدريس',
+    sl1:'سنوات', sl2:'طالب', sl3:'تقييم',
+    lb1:'المنصة الرسمية', lb2:'فيسبوك', lb3:'يوتيوب', lb4:'تيك توك', lb5:'واتساب',
+    footCopy:'© 2027 — أمنية سعيد — جميع الحقوق محفوظة',
+  },
+  en: {
+    lang:'en', dir:'ltr',
+    metaIssue: 'Chemistry & Science Teacher — 2027',
+    kicker: 'Personal Educational Brand',
+    nameDisplay: 'Omnia<br><em>Said</em>',
+    subtitle: 'Chemistry & Integrated Science Teacher for all high school levels — 9 years of experience, real passion for education.',
+    c1:'Bachelor of Science & Education',
+    c2:'Special Education Certificate (Master\'s Prep)',
+    c3:'Science in English Language Certificate',
+    c4:'Master\'s Degree in Teaching',
+    sl1:'Years', sl2:'Students', sl3:'Rating',
+    lb1:'Official Platform', lb2:'Facebook', lb3:'YouTube', lb4:'TikTok', lb5:'WhatsApp',
+    footCopy:'© 2027 — Omnia Said — All Rights Reserved',
+  }
+};
+
+let cur = localStorage.getItem('lang') || 'ar';
+applyLang(cur);
+
+function setLang(l){
+  cur = l;
+  localStorage.setItem('lang', l);
+  applyLang(l);
+}
+
+function applyLang(l){
+  const t = T[l];
+  document.documentElement.lang = t.lang;
+  document.documentElement.dir  = t.dir;
+  document.body.classList.toggle('en', l==='en');
+
+  document.getElementById('btnAR').classList.toggle('active', l==='ar');
+  document.getElementById('btnEN').classList.toggle('active', l==='en');
+
+  set('meta-issue', t.metaIssue);
+  setHTML('kicker', t.kicker);
+  setHTML('name-display', t.nameDisplay);
+  set('subtitle', t.subtitle);
+  set('c1', t.c1); set('c2', t.c2); set('c3', t.c3); set('c4', t.c4);
+  set('sl1', t.sl1); set('sl2', t.sl2); set('sl3', t.sl3);
+  set('lb1', t.lb1); set('lb2', t.lb2); set('lb3', t.lb3); set('lb4', t.lb4); set('lb5', t.lb5);
+  set('foot-copy', t.footCopy);
+}
+
+function set(id, v){ const el=document.getElementById(id); if(el) el.textContent=v; }
+function setHTML(id, v){ const el=document.getElementById(id); if(el) el.innerHTML=v; }
+</script>
+</body>
+</html>

@@ -1,1 +1,692 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>أ. أمنية سعيد | رائدة الكيمياء والعلوم المتكاملة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- 🖼️ مكتبة Medium Zoom لعرض الصور بشكل احترافي -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.css">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Playpen Sans Arabic', 'Tajawal', 'Cairo', sans-serif;
+            background-color: #0a0a0c;
+            background-image: radial-gradient(circle at 15% 30%, rgba(180,40,40,0.05) 0%, rgba(0,0,0,0) 70%),
+                              repeating-linear-gradient(45deg, rgba(255,255,255,0.01) 0px, rgba(255,255,255,0.01) 1px, transparent 1px, transparent 12px);
+            color: #f0f0f0;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        /* ========== PRELOADER ========== */
+        .preloader {
+            position: fixed;
+            inset: 0;
+            background: #010105;
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 30px;
+            transition: opacity 0.8s ease, visibility 0.8s;
+        }
+        .preloader-logo {
+            width: 130px;
+            height: auto;
+            filter: drop-shadow(0 0 25px rgba(200,60,60,0.8));
+            animation: gentlePulse 1.8s infinite alternate;
+        }
+        @keyframes gentlePulse {
+            0% { transform: scale(0.95); opacity: 0.8; filter: drop-shadow(0 0 5px rgba(200,60,60,0.5)); }
+            100% { transform: scale(1.05); opacity: 1; filter: drop-shadow(0 0 25px rgba(200,60,60,0.9)); }
+        }
+        .preloader .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(200,60,60,0.2);
+            border-top: 3px solid #c43b3b;
+            border-radius: 50%;
+            animation: spin 0.8s infinite linear;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .preloader.fade-out { opacity: 0; visibility: hidden; }
+        
+        /* خلفية سينمائية */
+        .bg-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .bg-shapes .shape {
+            position: absolute;
+            background: rgba(220,50,50,0.08);
+            filter: blur(80px);
+            border-radius: 50%;
+        }
+        .shape-1 { width: 60vw; height: 60vw; top: -20vh; left: -15vw; background: radial-gradient(circle, rgba(200,40,40,0.12), transparent); }
+        .shape-2 { width: 45vw; height: 45vw; bottom: -15vh; right: -10vw; background: radial-gradient(circle, rgba(200,40,40,0.08), transparent); }
+        .shape-3 { width: 35vw; height: 35vw; top: 40vh; left: 60vw; background: radial-gradient(circle, rgba(200,60,60,0.05), transparent); }
+        
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 2;
+        }
+        .lang-toggle {
+            position: fixed;
+            top: 28px;
+            left: 32px;
+            z-index: 100;
+            background: rgba(20,20,25,0.75);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(220,60,60,0.5);
+            border-radius: 60px;
+            padding: 8px 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.2,0.9,0.4,1.1);
+            color: #f0f0f0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .lang-toggle:hover { background: #b32d2d; transform: translateY(-3px); }
+        
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 48px;
+            padding: 120px 0 70px;
+            min-height: 90vh;
+        }
+        .hero-content { flex: 1.2; }
+        .hero-image { flex: 0.9; display: flex; justify-content: center; position: relative; }
+        
+        /* 🖼️ إطار الصورة المربع الاحترافي */
+        .teacher-img-wrapper {
+            position: relative;
+            width: 380px;
+            max-width: 100%;
+            border-radius: 16px;
+            padding: 3px;
+            background: linear-gradient(135deg, #c43b3b, #e06e6e, #ff8c8c, #e06e6e, #c43b3b) border-box;
+            background-size: 300% 300%;
+            animation: borderFlow 4s ease infinite;
+            border: 2px solid transparent;
+            filter: drop-shadow(0 25px 35px rgba(0,0,0,0.7)) drop-shadow(0 0 25px rgba(200,60,60,0.4));
+            cursor: zoom-in;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            overflow: hidden;
+        }
+        .teacher-img-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%);
+            transform: translateX(-100%);
+            animation: shine 3s infinite;
+            pointer-events: none;
+            border-radius: 18px;
+        }
+        .teacher-img-wrapper:hover {
+            transform: scale(1.02);
+            filter: drop-shadow(0 30px 45px rgba(0,0,0,0.8)) drop-shadow(0 0 35px rgba(200,60,60,0.6));
+        }
+        .teacher-img {
+            width: 100%;
+            height: auto;
+            border-radius: 13px;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        @keyframes borderFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(15deg); }
+            20% { transform: translateX(100%) rotate(15deg); }
+            100% { transform: translateX(100%) rotate(15deg); }
+        }
+        
+        .medium-zoom-overlay { background: rgba(10, 10, 12, 0.95) !important; backdrop-filter: blur(8px); }
+        .medium-zoom-image--opened { border-radius: 20px !important; box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 40px rgba(200,60,60,0.5) !important; border: 3px solid rgba(200,60,60,0.6); }
+        
+        .hero-content .name {
+            font-size: 3.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, #e2b0b0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+        .hero-tagline {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #e0b3b3;
+            border-right: 4px solid #c43b3b;
+            padding-right: 20px;
+            margin: 20px 0 28px;
+        }
+        .hero-bio {
+            font-size: 1.05rem;
+            color: #cdcddd;
+            line-height: 1.7;
+            max-width: 90%;
+        }
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 45px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            right: 0;
+            width: 80px;
+            height: 3px;
+            background: #c43b3b;
+            border-radius: 4px;
+        }
+        .quals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 30px;
+            margin: 50px 0 70px;
+        }
+        .qual-card {
+            background: rgba(20,20,28,0.55);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(220,60,60,0.2);
+            border-radius: 32px;
+            padding: 32px 24px;
+            transition: all 0.4s cubic-bezier(0.2,0.9,0.4,1.1);
+            text-align: center;
+            cursor: default;
+        }
+        .qual-card:hover {
+            transform: translateY(-8px);
+            border-color: #c43b3b;
+            background: rgba(30,30,38,0.8);
+            box-shadow: 0 20px 35px -12px rgba(180,40,40,0.35);
+        }
+        .qual-card i { font-size: 2.6rem; color: #c43b3b; margin-bottom: 20px; }
+        .qual-card h3 { font-size: 1.45rem; font-weight: 700; margin-bottom: 12px; }
+        .qual-card p { font-size: 0.95rem; color: #bcbcd0; }
+        
+        .links-section { margin: 60px 0 80px; }
+        .links-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+            justify-content: center;
+        }
+        .premium-btn {
+            background: #0f0f12;
+            border: 1.5px solid rgba(200,60,60,0.7);
+            border-radius: 80px;
+            padding: 14px 36px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            transition: all 0.3s cubic-bezier(0.2,0.9,0.4,1.2);
+            color: #f5f5f5;
+            cursor: pointer;
+        }
+        .premium-btn i { font-size: 1.3rem; color: #e06e6e; transition: 0.2s; }
+        .premium-btn:hover {
+            transform: translateY(-6px) scale(1.02);
+            background: #18181f;
+            border-color: #e05a5a;
+            box-shadow: 0 18px 28px -10px rgba(200,60,60,0.5);
+        }
+        .premium-btn:hover i { transform: scale(1.1); color: #ff8c8c; }
+        
+        /* Footer */
+        .footer {
+            margin-top: 100px;
+            padding: 45px 0 35px;
+            border-top: 1px solid rgba(200,60,60,0.35);
+            background: linear-gradient(to top, #050507, transparent);
+        }
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 35px;
+        }
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .teacher-footer-logo img {
+            width: 110px;
+            height: auto;
+            filter: drop-shadow(0 0 8px rgba(200,70,70,0.5));
+            transition: transform 0.3s;
+        }
+        .teacher-footer-logo img:hover { transform: scale(1.02); }
+        
+        .powered-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            padding: 0;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .powered-wrapper:hover { transform: translateY(-3px); }
+        .powered-text {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #e0b3b3;
+            letter-spacing: 0.5px;
+        }
+        .powered-wrapper img {
+            height: 75px;
+            width: auto;
+            filter: brightness(0.95) drop-shadow(0 0 4px rgba(200,70,70,0.3));
+            transition: 0.2s;
+        }
+        .powered-wrapper:hover img { filter: brightness(1); }
+        
+        .copyright { font-size: 0.85rem; color: #8a8a9a; }
+        .heart-text {
+            font-size: 0.9rem;
+            color: #cfcfdf;
+            text-align: center;
+            margin-top: 22px;
+            letter-spacing: 0.4px;
+        }
+        
+        /* 🔘 زر الصوت العائم */
+        .stop-sound-btn {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: linear-gradient(135deg, rgba(20,20,28,0.92), rgba(30,30,42,0.96));
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            border-radius: 80px;
+            padding: 14px 28px;
+            color: #f0f0f0;
+            font-weight: 700;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.8) translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.6s, box-shadow 0.3s ease;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(200,60,60,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .stop-sound-btn::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, #c43b3b, #e06e6e, #ff8c8c, #e06e6e, #c43b3b);
+            background-size: 300% 300%;
+            border-radius: 82px;
+            animation: borderGlow 3s ease infinite;
+            z-index: -1;
+            opacity: 0.7;
+        }
+        .stop-sound-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            transition: left 0.6s ease;
+        }
+        .stop-sound-btn:hover::after { left: 100%; }
+        
+        .stop-sound-btn.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1) translateY(0);
+            animation: gentleFloat 3.5s ease-in-out infinite;
+        }
+        .stop-sound-btn:hover {
+            box-shadow: 0 15px 50px rgba(0,0,0,0.6), 0 0 0 1px rgba(220,80,80,0.5), 0 0 40px rgba(200,60,60,0.35);
+        }
+        .stop-sound-btn:active { transform: scale(0.96) !important; }
+        
+        .stop-sound-btn i {
+            color: #ff8c8c;
+            font-size: 1.1rem;
+            animation: pulseNeon 1.8s ease-in-out infinite;
+            text-shadow: 0 0 10px rgba(200,60,60,0.6);
+        }
+        .stop-sound-btn.muted i {
+            animation: none;
+            color: #6a6a7a;
+            text-shadow: none;
+        }
+        
+        @keyframes gentleFloat {
+            0%, 100% { transform: scale(1) translateY(0); }
+            50% { transform: scale(1) translateY(-8px); }
+        }
+        @keyframes borderGlow {
+            0%, 100% { background-position: 0% 50%; opacity: 0.6; }
+            50% { background-position: 100% 50%; opacity: 0.9; }
+        }
+        @keyframes pulseNeon {
+            0%, 100% { opacity: 1; text-shadow: 0 0 10px rgba(200,60,60,0.6); }
+            50% { opacity: 0.7; text-shadow: 0 0 25px rgba(200,60,60,0.9), 0 0 40px rgba(200,60,60,0.5); }
+        }
+        
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        
+        @media (max-width: 992px) {
+            .hero { flex-direction: column-reverse; text-align: center; padding: 100px 0 40px; }
+            .hero-content .hero-bio { max-width: 100%; }
+            .hero-tagline { border-right: none; border-bottom: 2px solid #c43b3b; display: inline-block; padding-bottom: 6px; }
+            .teacher-img-wrapper { width: 280px; }
+            .section-title:after { right: 50%; transform: translateX(50%); }
+            .section-title { text-align: center; width: 100%; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .footer-brand { justify-content: center; }
+        }
+        @media (max-width: 768px) {
+            .stop-sound-btn { bottom: 25px; right: 25px; padding: 12px 22px; font-size: 0.9rem; }
+        }
+        @media (max-width: 580px) {
+            .hero-content .name { font-size: 2.6rem; }
+            .premium-btn { padding: 10px 24px; font-size: 0.9rem; }
+            .powered-wrapper img { height: 60px; }
+            .teacher-footer-logo img { width: 85px; }
+            .teacher-img-wrapper { width: 240px; }
+            .stop-sound-btn { bottom: 20px; right: 20px; padding: 10px 18px; font-size: 0.85rem; }
+        }
+        html[dir="ltr"] .stop-sound-btn { right: auto; left: 40px; }
+        html[dir="ltr"] .stop-sound-btn:hover { transform: scale(1.03) translateX(-6px); }
+    </style>
+</head>
+<body>
 
+<!-- Preloader -->
+<div class="preloader" id="preloader">
+    <img class="preloader-logo" src="teacher-logo.png" alt="شعار أ. أمنية سعيد" onerror="this.src='https://placehold.co/130x130/2c2c2c/cccccc?text=أمنية'">
+    <div class="spinner"></div>
+</div>
+
+<div class="bg-shapes"><div class="shape shape-1"></div><div class="shape shape-2"></div><div class="shape shape-3"></div></div>
+
+<div class="lang-toggle" id="langToggleBtn"><i class="fas fa-globe"></i> <span id="langText">EN</span></div>
+
+<div class="container">
+    <div class="hero fade-up">
+        <div class="hero-content">
+            <div class="name" id="teacherName">أمنية سعيد</div>
+            <div class="hero-tagline" id="teacherTagline">معلمة الكيمياء والعلوم المتكاملة لجميع مراحل الثانوية العامة</div>
+            <div class="hero-bio" id="teacherBio">
+                الأستاذة أمنية سعيد تمتلك خبرة 14 عامًا في تدريس مناهج الكيمياء خبرة سنتين فى تدريس منهج العلوم المتكاملة، وتسعى دائمًا لتقديم تجربة تعليمية فريدة تجمع بين الشرح المبسط والفهم العميق، ليكون الطالب على ثقة وتميز.
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="teacher-img-wrapper" id="teacherImgWrapper" title="اضغط للتكبير">
+                <img class="teacher-img" id="teacherPhoto" src="teacher.png" alt="أ. أمنية سعيد" onerror="this.src='https://randomuser.me/api/portraits/women/68.jpg';">
+            </div>
+        </div>
+    </div>
+    <div class="fade-up">
+        <h2 class="section-title" id="qualTitle">المؤهلات الأكاديمية والخبرات</h2>
+        <div class="quals-grid" id="qualificationsGrid"></div>
+    </div>
+    <div class="links-section fade-up">
+        <h2 class="section-title" id="linksTitle">منصاتي الرسمية</h2>
+        <div class="links-grid" id="linksContainer"></div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <div class="footer-brand">
+            <div class="teacher-footer-logo">
+                <img src="logo.png" alt="شعار أمنية سعيد" id="footerTeacherLogo" onerror="this.style.display='none'">
+            </div>
+            <a href="https://dddfdfex.github.io/Brothers-Studio/" target="_blank" class="powered-wrapper" title="زيارة المطور">
+                <span class="powered-text">Powered By</span>
+                <img src="powered-logo.png" alt="تطوير" id="poweredLogoFooter" onerror="this.style.display='none'">
+            </a>
+        </div>
+        <div class="copyright" id="copyrightText">© 2027 جميع الحقوق محفوظة — أمنية سعيد</div>
+    </div>
+    <div class="container heart-text" id="heartMessage">
+        صُنع بكل ❤️ لسرعة وصول الطالب إلى كل ما يحتاجه من محتوى تعليمي ووسائل تواصل في مكان واحد ✨
+    </div>
+</footer>
+
+<!-- 🔘 زر الصوت العائم -->
+<button class="stop-sound-btn" id="stopSoundBtn" title="إيقاف/تشغيل الموسيقى">
+    <i class="fas fa-volume-up"></i>
+    <span id="stopSoundText">إيقاف الصوت</span>
+</button>
+
+<!-- عنصر الصوت -->
+<audio id="backgroundMusic" loop preload="auto">
+    <source src="background-music.mp3" type="audio/mpeg">
+    متصفحك لا يدعم تشغيل الصوت.
+</audio>
+
+<!-- 📚 المكتبات الخارجية -->
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
+<script>
+    // الترجمات
+    const translations = {
+        ar: {
+            teacherName: "أمنية سعيد",
+            teacherTagline: "معلمة الكيمياء والعلوم المتكاملة لجميع مراحل الثانوية العامة",
+            teacherBio: "الأستاذة أمنية سعيد تمتلك خبرة 14 عامًا في تدريس مناهج الكيمياء خبرة سنتين فى تدريس منهج العلوم المتكاملة، وتسعى دائمًا لتقديم تجربة تعليمية فريدة تجمع بين الشرح المبسط والفهم العميق، ليكون الطالب على ثقة وتميز.",
+            qualTitle: "المؤهلات الأكاديمية والخبرات",
+            qualList: [
+                { icon: "fas fa-graduation-cap", title: "بكالوريوس علوم وتربية", desc: "امتياز مع مرتبة الشرف" },
+                { icon: "fas fa-chalkboard-user", title: "14 سنة خبرة", desc: "تدريس الكيمياء وسنتين فى تدريس العلوم المتكاملة" },
+                { icon: "fas fa-certificate", title: "شهادة التربية الخاصة", desc: "لتحضير الماجستير" },
+                { icon: "fas fa-language", title: "شهادة العلوم باللغة الإنجليزية", desc: "تدريس متخصص باللغة الإنجليزية" },
+                { icon: "fas fa-microscope", title: "ماجستير في التدريس", desc: "تطوير المناهج والاستراتيجيات" }
+            ],
+            linksTitle: "منصاتي الرسمية",
+            buttons: [
+                { name: "المنصة الرسمية", icon: "fas fa-globe", url: "https://omnia-said.com" },
+                { name: "فيسبوك", icon: "fab fa-facebook-f", url: "https://www.facebook.com/Mrs.Omnia.Said/about?locale=ar_AR" },
+                { name: "قناة اليوتيوب", icon: "fab fa-youtube", url: "https://www.youtube.com/@Mrsomniasaidofficially" },
+                { name: "تيك توك", icon: "fab fa-tiktok", url: "https://www.tiktok.com/@omniasaid27" },
+                { name: "قناة الواتساب ", icon: "fab fa-whatsapp", url: "https://whatsapp.com/channel/0029Vb6T7xGHbFVAmrhO5k3r" }
+            ],
+            footerCopy: "© 2027 جميع الحقوق محفوظة — أمنية سعيد",
+            langBtnText: "EN",
+            stopSound: "إيقاف الصوت",
+            playSound: "تشغيل الصوت"
+        },
+        en: {
+            teacherName: "Omnia Said",
+            teacherTagline: "Chemistry & Integrated Science Teacher for All High School Levels",
+            teacherBio: "Mrs. Omnia Said has 14 years of experience in teaching chemistry and integrated sciences, dedicated to providing a unique educational experience that combines simplified explanation with deep understanding, empowering students with confidence and excellence.",
+            qualTitle: "Academic Qualifications & Experience",
+            qualList: [
+                { icon: "fas fa-graduation-cap", title: "B.Sc. Science & Education", desc: "Honors Degree" },
+                { icon: "fas fa-chalkboard-user", title: "14 Years Experience", desc: "Chemistry & Integrated Science" },
+                { icon: "fas fa-certificate", title: "Special Education Diploma", desc: "Master's Preparation" },
+                { icon: "fas fa-language", title: "Science in English Certificate", desc: "Specialized English Instruction" },
+                { icon: "fas fa-microscope", title: "Master in Teaching", desc: "Curriculum Development" }
+            ],
+            linksTitle: "Official Platforms",
+            buttons: [
+                { name: "Official Website", icon: "fas fa-globe", url: "https://omnia-said.com" },
+                { name: "Facebook", icon: "fab fa-facebook-f", url: "https://www.facebook.com/Mrs.Omnia.Said/about?locale=ar_AR" },
+                { name: "YouTube", icon: "fab fa-youtube", url: "https://www.youtube.com/@Mrsomniasaidofficially" },
+                { name: "TikTok", icon: "fab fa-tiktok", url: "https://www.tiktok.com/@omniasaid27" },
+                { name: "WhatsApp", icon: "fab fa-whatsapp", url: "https://whatsapp.com/channel/0029Vb6T7xGHbFVAmrhO5k3r" }
+            ],
+            footerCopy: "© 2027 All Rights Reserved — Omnia Said",
+            langBtnText: "AR",
+            stopSound: "Mute Sound",
+            playSound: "Play Sound"
+        }
+    };
+
+    let currentLang = localStorage.getItem('preferredLang') || 'ar';
+    const toggle = document.getElementById('langToggleBtn');
+    const langSpan = document.getElementById('langText');
+    
+    function updateUI(lang) {
+        const t = translations[lang];
+        document.getElementById('teacherName').innerText = t.teacherName;
+        document.getElementById('teacherTagline').innerText = t.teacherTagline;
+        document.getElementById('teacherBio').innerText = t.teacherBio;
+        document.getElementById('qualTitle').innerText = t.qualTitle;
+        document.getElementById('linksTitle').innerText = t.linksTitle;
+        document.getElementById('copyrightText').innerText = t.footerCopy;
+        document.getElementById('stopSoundText').innerText = isMusicPlaying ? t.stopSound : t.playSound;
+        langSpan.innerText = t.langBtnText;
+        
+        const qualGrid = document.getElementById('qualificationsGrid');
+        qualGrid.innerHTML = '';
+        t.qualList.forEach(q => {
+            const card = document.createElement('div');
+            card.className = 'qual-card fade-up';
+            card.innerHTML = `<i class="${q.icon}"></i><h3>${q.title}</h3><p>${q.desc}</p>`;
+            qualGrid.appendChild(card);
+        });
+        observeFade();
+        
+        const links = document.getElementById('linksContainer');
+        links.innerHTML = '';
+        t.buttons.forEach(btn => {
+            const a = document.createElement('a');
+            a.href = btn.url; a.target = '_blank'; a.rel = 'noopener';
+            a.className = 'premium-btn';
+            a.innerHTML = `<i class="${btn.icon}"></i><span>${btn.name}</span>`;
+            links.appendChild(a);
+        });
+        
+        document.documentElement.lang = lang === 'ar' ? 'ar' : 'en';
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        localStorage.setItem('preferredLang', lang);
+    }
+    
+    toggle.addEventListener('click', () => { 
+        currentLang = currentLang === 'ar' ? 'en' : 'ar'; 
+        updateUI(currentLang); 
+    });
+
+    // إخفاء preloader عند التحميل
+    window.addEventListener('load', () => {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            preloader.classList.add('fade-out');
+            setTimeout(() => preloader.remove(), 800);
+        }
+        document.body.style.opacity = '1';
+        observeFade();
+        initAutoMusic();
+        initImageLibraries();
+    });
+
+    function observeFade() {
+        const faders = document.querySelectorAll('.fade-up');
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { 
+                if (entry.isIntersecting) { entry.target.classList.add('visible'); obs.unobserve(entry.target); } 
+            });
+        }, { threshold: 0.1 });
+        faders.forEach(el => obs.observe(el));
+    }
+
+    // 🖼️ مكتبات عرض الصور
+    function initImageLibraries() {
+        const img = document.getElementById('teacherPhoto');
+        const wrapper = document.getElementById('teacherImgWrapper');
+        
+        mediumZoom(img, { margin: 24, background: 'rgba(10, 10, 12, 0.95)', scrollOffset: 0, meta: 'image' });
+        VanillaTilt.init(wrapper, { max: 8, speed: 400, glare: true, "max-glare": 0.3, "scale": 1.02, "transition": true, "perspective": 1000 });
+        
+        wrapper.addEventListener('touchend', (e) => { e.preventDefault(); mediumZoom(img).toggle(); });
+    }
+
+    // 🎵 نظام الموسيقى
+    const music = document.getElementById('backgroundMusic');
+    const stopBtn = document.getElementById('stopSoundBtn');
+    let isMusicPlaying = false;
+    let audioUnlocked = false;
+
+    function initAutoMusic() {
+        music.volume = 0.25;
+        const tryPlay = () => {
+            if (!audioUnlocked) {
+                music.play().then(() => {
+                    isMusicPlaying = true; audioUnlocked = true; updateStopButtonText();
+                }).catch(e => {
+                    document.addEventListener('click', tryPlay, { once: true });
+                    document.addEventListener('touchstart', tryPlay, { once: true });
+                });
+            }
+        };
+        tryPlay();
+    }
+
+    // ⏱️ إظهار الزر العائم بعد 20 ثانية
+    setTimeout(() => { stopBtn.classList.add('visible'); }, 20000);
+
+    function updateStopButtonText() {
+        const t = translations[currentLang];
+        document.getElementById('stopSoundText').innerText = isMusicPlaying ? t.stopSound : t.playSound;
+        stopBtn.classList.toggle('muted', !isMusicPlaying);
+    }
+
+    stopBtn.addEventListener('click', () => {
+        if (isMusicPlaying) { music.pause(); isMusicPlaying = false; } 
+        else { music.volume = 0.25; music.play().then(() => { isMusicPlaying = true; }); }
+        updateStopButtonText();
+    });
+
+    document.addEventListener('visibilitychange', () => { if (document.hidden && isMusicPlaying) music.pause(); });
+    
+    updateUI(currentLang);
+</script>
+</body>
+</html>

@@ -3,18 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>أ. أمنية سعيد | معلمة الكيمياء والعلوم المتكاملة</title>
+    <title>أ. أمنية سعيد | تسجيل أكونت المنصة - دفعة 2027</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.css">
-    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Playpen Sans Arabic', 'Tajawal', 'Cairo', sans-serif;
-            background-color: #0a0a0c;
-            background-image: radial-gradient(circle at 15% 30%, rgba(180,40,40,0.05) 0%, rgba(0,0,0,0) 70%),
-                              repeating-linear-gradient(45deg, rgba(255,255,255,0.01) 0px, rgba(255,255,255,0.01) 1px, transparent 1px, transparent 12px);
+            background: linear-gradient(145deg, #0a0a0c 0%, #12121a 100%);
             color: #f0f0f0;
             line-height: 1.5;
             scroll-behavior: smooth;
@@ -22,53 +19,44 @@
             opacity: 0;
             transition: opacity 0.5s ease;
         }
-
         .preloader { position: fixed; inset: 0; background: #010105; z-index: 10000; display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 30px; transition: opacity 0.8s ease, visibility 0.8s; }
         .preloader-logo { width: 180px; height: auto; filter: drop-shadow(0 0 25px rgba(200,60,60,0.8)); animation: gentlePulse 1.8s infinite alternate; }
         @keyframes gentlePulse { 0% { transform: scale(0.95); opacity: 0.8; filter: drop-shadow(0 0 5px rgba(200,60,60,0.5)); } 100% { transform: scale(1.05); opacity: 1; filter: drop-shadow(0 0 25px rgba(200,60,60,0.9)); } }
         .preloader .spinner { width: 50px; height: 50px; border: 3px solid rgba(200,60,60,0.2); border-top: 3px solid #c43b3b; border-radius: 50%; animation: spin 0.8s infinite linear; }
         @keyframes spin { to { transform: rotate(360deg); } }
         .preloader.fade-out { opacity: 0; visibility: hidden; }
-
         .container { max-width: 1320px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
         .lang-toggle { position: fixed; top: 28px; left: 32px; z-index: 100; background: rgba(20,20,25,0.75); backdrop-filter: blur(10px); border-radius: 60px; padding: 8px 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.3s ease; color: #f0f0f0; border: none; }
         .lang-toggle:hover { background: #b32d2d; transform: translateY(-3px); }
-
         .hero { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 48px; padding: 120px 0 70px; min-height: 90vh; }
         .hero-content { flex: 1.2; }
         .hero-image { flex: 0.9; display: flex; justify-content: center; position: relative; }
-        .teacher-img-wrapper { position: relative; width: 400px; max-width: 100%; border-radius: 20px; padding: 4px; background: linear-gradient(135deg, #ff4d4d, #b30000); box-shadow: 0 0 40px rgba(200, 40, 40, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.2); cursor: zoom-in; transition: transform 0.4s ease, box-shadow 0.4s ease; overflow: hidden; z-index: 2; }
-        .teacher-img-wrapper:hover { transform: scale(1.03); box-shadow: 0 0 60px rgba(255, 50, 50, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.3); }
+        .teacher-img-wrapper { position: relative; width: 400px; max-width: 100%; border-radius: 20px; padding: 4px; background: linear-gradient(135deg, #ff4d4d, #b30000); box-shadow: 0 0 40px rgba(200,40,40,0.4), inset 0 0 20px rgba(255,255,255,0.2); cursor: zoom-in; transition: transform 0.4s ease, box-shadow 0.4s ease; overflow: hidden; z-index: 2; }
+        .teacher-img-wrapper:hover { transform: scale(1.03); box-shadow: 0 0 60px rgba(255,50,50,0.6), inset 0 0 20px rgba(255,255,255,0.3); }
         .teacher-img { width: 100%; height: auto; border-radius: 16px; display: block; position: relative; z-index: 3; }
-        .medium-zoom-overlay { background: rgba(10, 10, 12, 0.95) !important; backdrop-filter: blur(8px); }
+        .medium-zoom-overlay { background: rgba(10,10,12,0.95) !important; backdrop-filter: blur(8px); }
         .medium-zoom-image--opened { border-radius: 20px !important; box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 40px rgba(200,60,60,0.5) !important; border: 3px solid rgba(200,60,60,0.6); }
-
         .hero-content .name { font-size: 4.2rem; font-weight: 800; background: linear-gradient(135deg, #ffffff, #ffb3b3); background-clip: text; -webkit-background-clip: text; color: transparent; margin-bottom: 15px; line-height: 1.2; }
         .hero-tagline { font-size: 1.5rem; font-weight: 600; color: #e0b3b3; border-right: 4px solid #c43b3b; padding-right: 20px; margin: 20px 0 28px; }
         .hero-bio { font-size: 1.15rem; color: #d8d8e5; line-height: 1.8; max-width: 95%; font-weight: 300; }
         .section-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 45px; position: relative; display: inline-block; }
         .section-title:after { content: ''; position: absolute; bottom: -12px; right: 0; width: 80px; height: 3px; background: #c43b3b; border-radius: 4px; }
-        
         .quals-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 30px; margin: 50px 0 70px; }
         .qual-card { background: rgba(20,20,28,0.4); border-radius: 20px; padding: 32px 24px; transition: all 0.4s ease; text-align: center; cursor: default; }
         .qual-card:hover { transform: translateY(-8px); background: rgba(30,30,40,0.6); }
         .qual-card i { font-size: 2.6rem; color: #c43b3b; margin-bottom: 20px; }
         .qual-card h3 { font-size: 1.45rem; font-weight: 700; margin-bottom: 12px; }
         .qual-card p { font-size: 0.95rem; color: #bcbcd0; }
-        
-        .booking-section { margin: 60px 0; text-align: center; }
-        .booking-image { max-width: 100%; height: auto; cursor: pointer; transition: transform 0.3s ease, filter 0.3s ease; display: inline-block; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .booking-section { margin: 60px 0; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .booking-image { max-width: 100%; height: auto; cursor: pointer; transition: transform 0.3s ease, filter 0.3s ease; display: inline-block; border-radius: 0; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .booking-image:hover { transform: scale(1.02); filter: brightness(1.1); box-shadow: 0 15px 40px rgba(200,60,60,0.3); }
-        
         .links-section { margin: 60px 0 80px; }
         .links-grid { display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; }
         .premium-btn { background: #121216; border-radius: 80px; padding: 14px 36px; font-weight: 600; font-size: 1.05rem; text-decoration: none; display: inline-flex; align-items: center; gap: 14px; transition: all 0.3s ease; color: #f5f5f5; cursor: pointer; border: 1px solid rgba(255,255,255,0.05); }
         .premium-btn i { font-size: 1.3rem; color: #e06e6e; transition: 0.2s; }
         .premium-btn:hover { transform: translateY(-6px); background: #1e1e26; box-shadow: 0 10px 20px rgba(200,60,60,0.2); border-color: rgba(200,60,60,0.3); }
         .premium-btn:hover i { transform: scale(1.1); color: #ff8c8c; }
-
-        /* ====== تعديلات النافذة المنبثقة ====== */
-        .modal-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px); z-index: 99999; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s; overflow-y: auto; padding: 20px; }
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); z-index: 99999; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s; overflow-y: auto; padding: 20px; }
         .modal-overlay.active { opacity: 1; visibility: visible; }
         .modal-box { background: #111115; width: 100%; max-width: 550px; border-radius: 24px; padding: 40px 35px; position: relative; transform: translateY(30px) scale(0.95); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 30px rgba(200,40,40,0.2); margin: auto; border: 1px solid rgba(255,255,255,0.05); }
         .modal-overlay.active .modal-box { transform: translateY(0) scale(1); }
@@ -76,109 +64,58 @@
         .modal-close:hover { color: #fff; background: #c43b3b; transform: rotate(90deg); }
         .modal-title { text-align: center; font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 5px; }
         .modal-subtitle { text-align: center; font-size: 1rem; color: #ffb3b3; margin-bottom: 30px; font-weight: 500; }
-        
         .action-selection { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
         .action-btn { padding: 18px; border-radius: 16px; border: 2px solid transparent; font-size: 1.2rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 15px; transition: all 0.3s ease; font-family: inherit; }
-        .btn-book-action { background: rgba(40, 167, 69, 0.1); color: #28a745; border-color: rgba(40, 167, 69, 0.3); }
-        .btn-book-action:hover { background: #28a745; color: #fff; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(40, 167, 69, 0.3); }
-        .btn-cancel-action { background: rgba(220, 53, 69, 0.1); color: #dc3545; border-color: rgba(220, 53, 69, 0.3); }
-        .btn-cancel-action:hover { background: #dc3545; color: #fff; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(220, 53, 69, 0.3); }
-
+        .btn-book-action { background: rgba(40,167,69,0.1); color: #28a745; border-color: rgba(40,167,69,0.3); }
+        .btn-book-action:hover { background: #28a745; color: #fff; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(40,167,69,0.3); }
+        .btn-cancel-action { background: rgba(220,53,69,0.1); color: #dc3545; border-color: rgba(220,53,69,0.3); }
+        .btn-cancel-action:hover { background: #dc3545; color: #fff; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(220,53,69,0.3); }
         .progress-container { display: flex; justify-content: space-between; position: relative; margin-bottom: 40px; padding: 0 20px; }
         .progress-container::before { content: ''; background: #222230; position: absolute; top: 20px; left: 30px; right: 30px; height: 4px; z-index: 1; border-radius: 4px; }
-        .progress-bar { background: linear-gradient(90deg, #ff4d4d, #c43b3b); position: absolute; top: 20px; right: 30px; height: 4px; width: 0%; z-index: 1; transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); direction: rtl; border-radius: 4px; }
-        
+        .progress-bar { background: linear-gradient(90deg, #ff4d4d, #c43b3b); position: absolute; top: 20px; right: 30px; height: 4px; width: 0%; z-index: 1; transition: width 0.5s cubic-bezier(0.4,0,0.2,1); border-radius: 4px; }
         .progress-step-wrapper { display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 2; position: relative; }
         .progress-step { background: #111115; border: 3px solid #333; border-radius: 50%; width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; color: #666; font-weight: 800; transition: all 0.4s ease; font-size: 1.1rem; box-shadow: 0 0 0 5px #111115; }
         .step-label { font-size: 0.85rem; color: #666; font-weight: 600; transition: 0.4s; }
         .progress-step.active { border-color: #c43b3b; color: #fff; background: #c43b3b; box-shadow: 0 0 0 5px #111115, 0 0 15px rgba(200,60,60,0.5); }
         .progress-step.active + .step-label { color: #ffb3b3; }
         .progress-step.completed { border-color: #c43b3b; color: #c43b3b; background: #111115; }
-        
         .form-step { display: none; animation: fadeInRight 0.4s ease forwards; opacity: 0; transform: translateX(20px); }
         .form-step.active { display: block; }
-        
         .form-group { margin-bottom: 22px; text-align: right; }
         .form-group label { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 1rem; color: #e0e0e0; font-weight: 600; }
         .form-group label i { color: #c43b3b; }
         .form-group input, .form-group select { width: 100%; background: rgba(255,255,255,0.03); border: 2px solid #2a2a35; border-radius: 14px; padding: 15px 18px; color: #fff; font-size: 1.05rem; font-family: inherit; transition: all 0.3s; }
         .form-group input:focus, .form-group select:focus { outline: none; border-color: #c43b3b; background: rgba(196,59,59,0.05); box-shadow: 0 0 0 4px rgba(196,59,59,0.1); }
-        
         .btn-group { display: flex; gap: 15px; margin-top: 30px; }
         .btn-next, .submit-btn, .btn-cancel-submit { flex: 1; background: #c43b3b; color: #fff; border: none; border-radius: 14px; padding: 16px; font-size: 1.15rem; font-weight: 700; cursor: pointer; transition: all 0.3s; font-family: inherit; display: flex; justify-content: center; align-items: center; gap: 10px; }
         .btn-prev { flex: 0.5; background: #222230; color: #fff; border: 1px solid #444; border-radius: 14px; padding: 16px; font-size: 1.1rem; cursor: pointer; transition: 0.3s; font-family: inherit; display: flex; justify-content: center; align-items: center; gap: 10px; }
         .btn-next:hover, .submit-btn:hover, .btn-cancel-submit:hover { background: #e04a4a; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(200,60,60,0.3); }
         .btn-prev:hover { background: #333344; }
-
         .cancel-msg { text-align: center; margin-top: 20px; display: none; padding: 15px; border-radius: 12px; font-weight: bold; }
         .cancel-msg.success { background: rgba(40,167,69,0.1); border: 1px solid #28a745; color: #28a745; display: block; }
         .cancel-msg.error { background: rgba(220,53,69,0.1); border: 1px solid #dc3545; color: #ff6b6b; display: block; }
-
-        /* ====== بطاقة الـ ID سوداء بالكامل مع اللوجو المفرغ الأسود ====== */
         .id-card-wrapper { display: none; text-align: center; animation: fadeIn 0.5s ease; }
-        .id-card { 
-            background: #050505; /* أسود داكن جداً */
-            border: 2px solid #333; /* إطار داكن */
-            border-radius: 20px; 
-            padding: 0; 
-            margin-bottom: 20px; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.8), inset 0 0 20px rgba(200,60,60,0.05); 
-            position: relative; 
-            overflow: hidden; 
-            text-align: right;
-            direction: rtl; 
-        }
-        
-        .id-header { 
-            display: flex; align-items: center; justify-content: space-between; 
-            background: #0a0a0c; /* أسود أفتح قليلاً للترويسة */
-            padding: 15px 20px; 
-            position: relative; z-index: 1; 
-            border-bottom: 2px solid #c43b3b; /* خط أحمر فاصل */
-        }
+        .id-card { background: #050505; border: 2px solid #333; border-radius: 20px; padding: 0; margin-bottom: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.8), inset 0 0 20px rgba(200,60,60,0.05); position: relative; overflow: hidden; text-align: right; direction: rtl; }
+        .id-header { display: flex; align-items: center; justify-content: space-between; background: #0a0a0c; padding: 15px 20px; position: relative; z-index: 1; border-bottom: 2px solid #c43b3b; }
         .id-header-right { display: flex; align-items: center; gap: 12px; }
-        
-        /* ضبط اللوجو ليكون مفرغ وأسود */
-        .id-logo-container {
-            background: rgba(255, 255, 255, 0.9); /* خلفية بيضاء خفيفة لإظهار اللوجو الأسود */
-            border-radius: 8px;
-            padding: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .id-logo { 
-            height: 40px; 
-            width: auto; 
-            max-width: 60px; 
-            object-fit: contain; 
-            filter: brightness(0); /* جعل اللوجو أسود بالكامل */
-        }
-        
+        .id-logo-container { background: rgba(255,255,255,0.9); border-radius: 8px; padding: 4px; display: flex; align-items: center; justify-content: center; }
+        .id-logo { height: 40px; width: auto; max-width: 60px; object-fit: contain; filter: brightness(0); }
         .id-header-title { font-weight: 800; color: #fff; font-size: 1.15rem; }
         .id-status { background: rgba(40,167,69,0.15); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; color: #28a745; display: flex; align-items: center; gap: 5px; border: 1px solid rgba(40,167,69,0.3); font-weight: bold; }
-
         .id-body { padding: 25px 20px; position: relative; z-index: 1; }
         .id-info-grid { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
         .id-info-row { display: flex; justify-content: space-between; align-items: center; background: #0a0a0c; padding: 14px 15px; border-radius: 10px; border: 1px solid #1a1a24; border-right: 4px solid #c43b3b; }
         .id-label-container { display: flex; align-items: center; gap: 8px; color: #aaa; font-size: 0.9rem; }
         .id-label-container i { color: #c43b3b; font-size: 1.1rem; }
         .id-value { color: #fff; font-weight: 700; font-size: 1.05rem; }
-        
         .id-code-box { text-align: center; background: #0a0a0c; border: 1px dashed #333; padding: 18px; border-radius: 12px; position: relative; overflow: hidden; }
         .id-code-label { color: #888; font-size: 0.9rem; margin-bottom: 8px; font-weight: 600; }
         .id-code-box .code { font-family: monospace; font-size: 1.7rem; color: #c43b3b; font-weight: 900; letter-spacing: 3px; text-shadow: 0 0 10px rgba(196,59,59,0.2); }
-        
         .id-footer-note { font-size: 0.85rem; color: #aaa; text-align: center; margin-top: 15px; padding: 12px; background: #0a0a0c; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: bold; border: 1px solid #1a1a24; }
-        .id-footer-note i { color: #c43b3b; }
-        
-        .download-btn { background: #28a745; color: #fff; border: none; border-radius: 12px; padding: 14px; width: 100%; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: background 0.3s; display: flex; justify-content: center; align-items: center; gap: 10px; box-shadow: 0 5px 15px rgba(40,167,69,0.3); margin-top:15px; }
+        .download-btn { background: #28a745; color: #fff; border: none; border-radius: 12px; padding: 14px; width: 100%; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: background 0.3s; display: flex; justify-content: center; align-items: center; gap: 10px; box-shadow: 0 5px 15px rgba(40,167,69,0.3); margin-top: 15px; }
         .download-btn:hover { background: #218838; transform: translateY(-2px); }
-
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeInRight { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
-
-        /* Footer */
         .footer { margin-top: 100px; padding: 45px 0 35px; background: #050507; border-top: 1px solid rgba(255,255,255,0.05); }
         .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 35px; }
         .footer-brand { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
@@ -190,34 +127,29 @@
         .powered-wrapper img { height: 90px; width: auto; transition: 0.2s; }
         .copyright { font-size: 0.85rem; color: #8a8a9a; cursor: pointer; user-select: none; }
         .heart-text { font-size: 0.9rem; color: #cfcfdf; text-align: center; margin-top: 22px; }
-
         .stop-sound-btn { position: fixed; bottom: 40px; right: 40px; background: #14141c; border-radius: 80px; padding: 14px 28px; color: #f0f0f0; font-weight: 700; font-size: 1rem; display: flex; align-items: center; gap: 12px; cursor: pointer; z-index: 9999; border: 1px solid rgba(255,255,255,0.1); opacity: 0; visibility: hidden; transform: scale(0.8) translateY(20px); transition: all 0.6s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .stop-sound-btn.visible { opacity: 1; visibility: visible; transform: scale(1) translateY(0); }
         .stop-sound-btn i { color: #ff8c8c; font-size: 1.1rem; }
         .stop-sound-btn.muted i { color: #6a6a7a; }
         .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
         .fade-up.visible { opacity: 1; transform: translateY(0); }
-
         @media (max-width: 992px) { .hero { flex-direction: column-reverse; text-align: center; padding: 100px 0 40px; } .hero-content .hero-bio { max-width: 100%; } .hero-tagline { border-right: none; display: block; padding: 0; } .teacher-img-wrapper { width: 320px; } .section-title:after { right: 50%; transform: translateX(50%); } .section-title { text-align: center; width: 100%; } .footer-inner { flex-direction: column; text-align: center; } .footer-brand { justify-content: center; } }
         @media (max-width: 580px) { .hero-content .name { font-size: 3rem; } .teacher-img-wrapper { width: 260px; } .stop-sound-btn { bottom: 20px; right: 20px; padding: 10px 18px; font-size: 0.85rem; } .modal-box { padding: 30px 20px; } }
         html[dir="ltr"] .stop-sound-btn { right: auto; left: 40px; }
-        html[dir="ltr"] .progress-bar { right: auto; left: 30px; direction: ltr; }
+        html[dir="ltr"] .progress-bar { right: auto; left: 30px; }
     </style>
 </head>
 <body>
-
 <div class="preloader" id="preloader">
     <img class="preloader-logo" src="teacher-logo.png" alt="شعار أ. أمنية سعيد" onerror="this.src='https://placehold.co/180x180/2c2c2c/cccccc?text=أمنية'">
     <div class="spinner"></div>
 </div>
-
 <button class="lang-toggle" id="langToggleBtn"><i class="fas fa-globe"></i> <span id="langText">EN</span></button>
-
 <div class="container">
     <div class="hero fade-up">
         <div class="hero-content">
             <div class="name" id="teacherName">أ. أمنية سعيد</div>
-            <div class="hero-tagline" id="teacherTagline">صَناعة التفوق في الكيمياء والعلوم المتكاملة | دليلك نحو القمة</div>
+            <div class="hero-tagline" id="teacherTagline">صَانعة التفوق في الكيمياء والعلوم المتكاملة | دليلك نحو القمة</div>
             <div class="hero-bio" id="teacherBio">
                 رحلة تعليمية ملهمة تمتد لأكثر من 14 عاماً... تجمع بين عبقرية الكيمياء وروعة العلوم المتكاملة. هنا، لا نكتفي بحفظ المعادلات، بل نصنع معاً وعياً علمياً وتفوقاً استثنائياً يضمن لك العلامة الكاملة والمستقبل المشرق.
             </div>
@@ -228,204 +160,112 @@
             </div>
         </div>
     </div>
-
     <div class="fade-up">
         <h2 class="section-title" id="qualTitle">المؤهلات الأكاديمية والخبرات</h2>
         <div class="quals-grid" id="qualificationsGrid"></div>
     </div>
-
     <div class="booking-section fade-up">
-        <img src="booking-banner.png" alt="احجز الآن" class="booking-image" id="bookingTriggerImg" onerror="this.src='https://placehold.co/1000x250/111115/ff4d4d?text=اضغط+هنا+لإدارة+الحجز+في+الصف+الأول+الثانوي'">
+        <img src="register-banner.png" alt="تسجيل أكونت المنصة لدفعة 2027" class="booking-image" id="bookingTriggerImg" onerror="this.src='https://placehold.co/1000x250/111115/ff4d4d?text=اضغط+هنا+لتسجيل+أكونت+المنصة+لدفعة+2027'" style="border-radius: 0;">
+        <a href="https://dddfdfex.github.io/bookingsystem/" target="_blank" rel="noopener noreferrer" style="display: block; width: 100%;">
+            <img src="external-link-banner.png" alt="نظام الحجز الخارجي" class="booking-image" onerror="this.src='https://placehold.co/1000x250/111115/ff4d4d?text=اضغط+هنا+للدخول+لنظام+الحجز'" style="border-radius: 0;">
+        </a>
     </div>
-
     <div class="links-section fade-up">
         <h2 class="section-title" id="linksTitle">منصاتي الرسمية</h2>
         <div class="links-grid" id="linksContainer"></div>
     </div>
 </div>
-
 <footer class="footer">
     <div class="container footer-inner">
         <div class="footer-brand">
-            <div class="teacher-footer-logo">
-                <img src="logo.png" alt="شعار أمنية سعيد" id="footerTeacherLogo" onerror="this.style.display='none'">
-            </div>
-            <a href="https://dddfdfex.github.io/Brothers-Studio/" target="_blank" class="powered-wrapper" title="زيارة المطور">
-                <span class="powered-text">Powered By</span>
-                <img src="powered-logo.png" alt="تطوير" id="poweredLogoFooter" onerror="this.style.display='none'">
-            </a>
+            <div class="teacher-footer-logo"><img src="logo.png" alt="شعار أمنية سعيد" id="footerTeacherLogo" onerror="this.style.display='none'"></div>
+            <a href="https://dddfdfex.github.io/Brothers-Studio/" target="_blank" class="powered-wrapper" title="زيارة المطور"><span class="powered-text">Powered By</span><img src="powered-logo.png" alt="تطوير" id="poweredLogoFooter" onerror="this.style.display='none'"></a>
         </div>
         <div class="copyright" id="copyrightText" title="اضغط هنا للإدارة">© 2027 جميع الحقوق محفوظة — أمنية سعيد</div>
     </div>
-    <div class="container heart-text" id="heartMessage">
-        صُنع بكل ❤️ لسرعة وصول الطالب إلى كل ما يحتاجه من محتوى تعليمي ووسائل تواصل في مكان واحد ✨
-    </div>
+    <div class="container heart-text" id="heartMessage">صُنع بكل ❤️ لسرعة وصول الطالب إلى كل ما يحتاجه من محتوى تعليمي ووسائل تواصل في مكان واحد ✨</div>
 </footer>
-
-<button class="stop-sound-btn" id="stopSoundBtn" title="إيقاف/تشغيل الموسيقى">
-    <i class="fas fa-volume-up"></i>
-    <span id="stopSoundText">إيقاف الصوت</span>
-</button>
-<audio id="backgroundMusic" loop preload="auto">
-    <source src="background-music.mp3" type="audio/mpeg">
-</audio>
-
+<button class="stop-sound-btn" id="stopSoundBtn" title="إيقاف/تشغيل الموسيقى"><i class="fas fa-volume-up"></i> <span id="stopSoundText">إيقاف الصوت</span></button>
+<audio id="backgroundMusic" loop preload="auto"><source src="background-music.mp3" type="audio/mpeg"></audio>
 <div class="modal-overlay" id="bookingModal">
     <div class="modal-box">
         <button class="modal-close" id="closeModalBtn"><i class="fas fa-times"></i></button>
-        
-        <h2 class="modal-title" id="modalTitle">إدارة الحجز</h2>
-        <p class="modal-subtitle" id="modalSubtitle">الصف الأول الثانوي - مادة العلوم المتكاملة</p>
-
+        <h2 class="modal-title" id="modalTitle">تسجيل أكونت المنصة</h2>
+        <p class="modal-subtitle" id="modalSubtitle">دفعة 2027</p>
         <div id="actionSelectionContainer">
             <div class="action-selection">
-                <button class="action-btn btn-book-action" id="btnChooseBook">
-                    <i class="fas fa-user-plus"></i>
-                    <span id="txtChooseBook">تسجيل حجز جديد</span>
-                </button>
-                <button class="action-btn btn-cancel-action" id="btnChooseCancel">
-                    <i class="fas fa-user-minus"></i>
-                    <span id="txtChooseCancel">إلغاء حجز سابق</span>
-                </button>
+                <button class="action-btn btn-book-action" id="btnChooseBook"><i class="fas fa-user-plus"></i> <span id="txtChooseBook">تسجيل حساب جديد</span></button>
+                <button class="action-btn btn-cancel-action" id="btnChooseCancel"><i class="fas fa-user-minus"></i> <span id="txtChooseCancel">إلغاء حساب سابق</span></button>
             </div>
         </div>
-
         <div id="bookingFormContainer" style="display: none;">
-            <div class="progress-container">
-                <div class="progress-bar" id="progressBar"></div>
-                <div class="progress-step-wrapper">
-                    <div class="progress-step active" id="stepIndicator1">1</div>
-                    <span class="step-label" id="lblStep1">البيانات الأساسية</span>
-                </div>
-                <div class="progress-step-wrapper">
-                    <div class="progress-step" id="stepIndicator2">2</div>
-                    <span class="step-label" id="lblStep2">بيانات التواصل</span>
-                </div>
+            <div class="progress-container"><div class="progress-bar" id="progressBar"></div>
+                <div class="progress-step-wrapper"><div class="progress-step active" id="stepIndicator1">1</div><span class="step-label" id="lblStep1">البيانات الأساسية</span></div>
+                <div class="progress-step-wrapper"><div class="progress-step" id="stepIndicator2">2</div><span class="step-label" id="lblStep2">بيانات التواصل</span></div>
             </div>
-
             <form id="bookingForm">
                 <div class="form-step active" id="step1">
-                    <div class="form-group">
-                        <label id="lblStudentName"><i class="fas fa-user"></i> اسم الطالب ثلاثي</label>
-                        <input type="text" id="studentName" required placeholder="أدخل اسم الطالب">
-                    </div>
-                    <div class="form-group">
-                        <label id="lblRegion"><i class="fas fa-map-marker-alt"></i> المنطقة</label>
-                        <select id="studentRegion" required>
-                            <option value="" disabled selected id="optSelectRegion">-- اختر المنطقة --</option>
-                            <option value="شنوان">شنوان</option>
-                            <option value="شبين الكوم">شبين الكوم</option>
-                        </select>
-                    </div>
-                    <div class="btn-group">
-                        <button type="button" class="btn-next" id="btnNextStep">التالي <i class="fas fa-arrow-left"></i></button>
-                    </div>
+                    <div class="form-group"><label id="lblStudentName"><i class="fas fa-user"></i> اسم الطالب ثلاثي</label><input type="text" id="studentName" required placeholder="أدخل اسم الطالب"></div>
+                    <div class="form-group"><label id="lblRegion"><i class="fas fa-map-marker-alt"></i> المنطقة</label><select id="studentRegion" required><option value="" disabled selected id="optSelectRegion">-- اختر المنطقة --</option><option value="شنوان">شنوان</option><option value="شبين الكوم">شبين الكوم</option></select></div>
+                    <!-- حقول جديدة: المادة والمرحلة -->
+                    <div class="form-group"><label id="lblSubject"><i class="fas fa-flask"></i> المادة</label><select id="studentSubject" required><option value="" disabled selected>-- اختر المادة --</option><option value="كيمياء">كيمياء</option><option value="علوم متكاملة">علوم متكاملة</option></select></div>
+                    <div class="form-group"><label id="lblGrade"><i class="fas fa-graduation-cap"></i> المرحلة الدراسية</label><select id="studentGrade" required><option value="" disabled selected>-- اختر المرحلة --</option><option value="أولى ثانوي">أولى ثانوي</option><option value="ثانية ثانوي">ثانية ثانوي</option><option value="ثالثة ثانوي">ثالثة ثانوي</option></select></div>
+                    <div class="btn-group"><button type="button" class="btn-next" id="btnNextStep">التالي <i class="fas fa-arrow-left"></i></button></div>
                 </div>
-
                 <div class="form-step" id="step2">
-                    <div class="form-group">
-                        <label id="lblStudentPhone"><i class="fas fa-mobile-alt"></i> رقم هاتف الطالب</label>
-                        <input type="tel" id="studentPhone" required placeholder="أدخل رقم هاتف الطالب">
-                    </div>
-                    <div class="form-group">
-                        <label id="lblParentPhone"><i class="fas fa-phone-alt"></i> رقم هاتف ولي الأمر</label>
-                        <input type="tel" id="parentPhone" required placeholder="أدخل رقم هاتف ولي الأمر">
-                    </div>
-                    <div class="btn-group">
-                        <button type="button" class="btn-prev" id="btnPrevStep"><i class="fas fa-arrow-right"></i> السابق</button>
-                        <button type="submit" class="submit-btn" id="btnSubmitForm"><i class="fas fa-check"></i> تأكيد الحجز</button>
-                    </div>
+                    <div class="form-group"><label id="lblStudentPhone"><i class="fas fa-mobile-alt"></i> رقم هاتف الطالب</label><input type="tel" id="studentPhone" required placeholder="أدخل رقم هاتف الطالب"></div>
+                    <div class="form-group"><label id="lblParentPhone"><i class="fas fa-phone-alt"></i> رقم هاتف ولي الأمر</label><input type="tel" id="parentPhone" required placeholder="أدخل رقم هاتف ولي الأمر"></div>
+                    <div class="form-group"><label id="lblEmail"><i class="fas fa-envelope"></i> البريد الإلكتروني (اختياري)</label><input type="email" id="studentEmail" placeholder="أدخل البريد الإلكتروني (اختياري)"></div>
+                    <div class="btn-group"><button type="button" class="btn-prev" id="btnPrevStep"><i class="fas fa-arrow-right"></i> السابق</button><button type="submit" class="submit-btn" id="btnSubmitForm"><i class="fas fa-check"></i> تأكيد التسجيل</button></div>
                 </div>
             </form>
         </div>
-
         <div id="cancelContainer" style="display: none;">
-            <div class="form-group">
-                <label id="lblCancelCode"><i class="fas fa-key"></i> كود الطالب السري</label>
-                <input type="text" id="cancelCodeInput" placeholder="أدخل الكود (مثال: OS-001-XXXX)">
-            </div>
-            <div class="btn-group">
-                <button type="button" class="btn-cancel-submit" id="btnSubmitCancel"><i class="fas fa-trash-alt"></i> تأكيد الإلغاء</button>
-            </div>
+            <div class="form-group"><label id="lblCancelCode"><i class="fas fa-key"></i> كود الطالب السري</label><input type="text" id="cancelCodeInput" placeholder="أدخل الكود (مثال: 12)"></div>
+            <div class="btn-group"><button type="button" class="btn-cancel-submit" id="btnSubmitCancel"><i class="fas fa-trash-alt"></i> تأكيد الإلغاء</button></div>
             <div id="cancelMessage" class="cancel-msg"></div>
         </div>
-
         <div class="id-card-wrapper" id="idCardWrapper">
             <div class="id-card" id="studentIdCard">
-                <div class="id-header">
-                    <div class="id-header-right">
-                        <div class="id-logo-container">
-                            <img src="teacher-logo.png" alt="شعار" class="id-logo" crossorigin="anonymous" onerror="this.src='https://placehold.co/100x100/ffffff/000000?text=OS'">
-                        </div>
-                        <div class="id-header-title" id="cardHeaderTitle">أمنية سعيد - حجز مؤكد</div>
-                    </div>
-                    <div class="id-status">
-                        <i class="fas fa-check-circle"></i>
-                        <span id="lblStatusValid">مؤكد</span>
-                    </div>
-                </div>
+                <div class="id-header"><div class="id-header-right"><div class="id-logo-container"><img src="teacher-logo.png" alt="شعار" class="id-logo" crossorigin="anonymous" onerror="this.src='https://placehold.co/100x100/ffffff/000000?text=OS'"></div><div class="id-header-title" id="cardHeaderTitle">أمنية سعيد - حساب مؤكد</div></div><div class="id-status"><i class="fas fa-check-circle"></i> <span id="lblStatusValid">مؤكد</span></div></div>
                 <div class="id-body">
                     <div class="id-info-grid">
-                        <div class="id-info-row">
-                            <div class="id-label-container">
-                                <i class="fas fa-user-graduate"></i> 
-                                <span class="id-label" id="lblCardName">الاسم:</span>
-                            </div>
-                            <span class="id-value" id="displayCardName">---</span>
-                        </div>
-                        <div class="id-info-row">
-                            <div class="id-label-container">
-                                <i class="fas fa-map-marker-alt"></i> 
-                                <span class="id-label" id="lblCardRegion">المنطقة:</span>
-                            </div>
-                            <span class="id-value" id="displayCardRegion">---</span>
-                        </div>
+                        <div class="id-info-row"><div class="id-label-container"><i class="fas fa-user-graduate"></i> <span class="id-label" id="lblCardName">الاسم:</span></div><span class="id-value" id="displayCardName">---</span></div>
+                        <div class="id-info-row"><div class="id-label-container"><i class="fas fa-map-marker-alt"></i> <span class="id-label" id="lblCardRegion">المنطقة:</span></div><span class="id-value" id="displayCardRegion">---</span></div>
+                        <div class="id-info-row"><div class="id-label-container"><i class="fas fa-flask"></i> <span class="id-label" id="lblCardSubject">المادة:</span></div><span class="id-value" id="displayCardSubject">---</span></div>
+                        <div class="id-info-row"><div class="id-label-container"><i class="fas fa-graduation-cap"></i> <span class="id-label" id="lblCardGrade">المرحلة:</span></div><span class="id-value" id="displayCardGrade">---</span></div>
                     </div>
-                    <div class="id-code-box">
-                        <div class="id-code-label" id="lblCardCode">كود الطالب السري</div>
-                        <div class="code" id="displayCardCode">OS-000-XXXX</div>
-                    </div>
-                    <div class="id-footer-note">
-                        <i class="fas fa-info-circle"></i> 
-                        <span id="idNoteText">احتفظ بصورة هذه البطاقة لدخول الحصة الأولى!</span>
-                    </div>
+                    <div class="id-code-box"><div class="id-code-label" id="lblCardCode">كود الطالب السري</div><div class="code" id="displayCardCode">1</div></div>
+                    <div class="id-footer-note"><i class="fas fa-info-circle"></i> <span id="idNoteText">احتفظ بصورة هذه البطاقة لدخول المنصة!</span></div>
                 </div>
             </div>
-            <button class="download-btn" id="downloadIdBtn">
-                <i class="fas fa-download"></i> 
-                <span id="lblDownloadBtn">حفظ كصورة</span>
-            </button>
+            <button class="download-btn" id="downloadIdBtn"><i class="fas fa-download"></i> <span id="lblDownloadBtn">حفظ كصورة</span></button>
         </div>
     </div>
 </div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
-
 <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
-
 <script>
-    // إعدادات Firebase
     const firebaseConfig = {
-      apiKey: "AIzaSyBMkLsjv1lKUeD5nuNTzHkWu4kAsf1vUWA",
-      authDomain: "omnia-bookings.firebaseapp.com",
-      databaseURL: "https://omnia-bookings-default-rtdb.europe-west1.firebasedatabase.app",
-      projectId: "omnia-bookings",
-      storageBucket: "omnia-bookings.firebasestorage.app",
-      messagingSenderId: "833023979379",
-      appId: "1:833023979379:web:ebca31eff42ad62c935f06"
+        apiKey: "AIzaSyBMkLsjv1lKUeD5nuNTzHkWu4kAsf1vUWA",
+        authDomain: "omnia-bookings.firebaseapp.com",
+        databaseURL: "https://omnia-bookings-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "omnia-bookings",
+        storageBucket: "omnia-bookings.firebasestorage.app",
+        messagingSenderId: "833023979379",
+        appId: "1:833023979379:web:ebca31eff42ad62c935f06"
     };
-
-    // تهيئة Firebase
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
 
+    // الترجمات (مع الحقول الجديدة)
     const translations = {
         ar: {
             teacherName: "أ. أمنية سعيد",
-            teacherTagline: "صَناعة التفوق في الكيمياء والعلوم المتكاملة | دليلك نحو القمة",
+            teacherTagline: "صَانعة التفوق في الكيمياء والعلوم المتكاملة | دليلك نحو القمة",
             teacherBio: "رحلة تعليمية ملهمة تمتد لأكثر من 14 عاماً... تجمع بين عبقرية الكيمياء وروعة العلوم المتكاملة. هنا، لا نكتفي بحفظ المعادلات، بل نصنع معاً وعياً علمياً وتفوقاً استثنائياً يضمن لك العلامة الكاملة والمستقبل المشرق.",
             qualTitle: "المؤهلات الأكاديمية والخبرات",
             qualList: [
@@ -444,25 +284,48 @@
                 { name: "واتساب", icon: "fab fa-whatsapp", url: "https://whatsapp.com/channel/0029Vb6T7xGHbFVAmrhO5k3r" }
             ],
             footerCopy: "© 2027 جميع الحقوق محفوظة — أمنية سعيد",
-            langBtnText: "EN", stopSound: "إيقاف الصوت", playSound: "تشغيل الصوت",
+            langBtnText: "EN",
+            stopSound: "إيقاف الصوت",
+            playSound: "تشغيل الصوت",
             modal: {
-                title: "إدارة الحجز", subtitle: "الصف الأول الثانوي - مادة العلوم المتكاملة",
-                chooseBook: "تسجيل حجز جديد", chooseCancel: "إلغاء حجز سابق",
-                step1Lbl: "البيانات الأساسية", step2Lbl: "بيانات التواصل",
-                lblName: "اسم الطالب ثلاثي", lblRegion: "المنطقة", optSelectRegion: "-- اختر المنطقة --",
-                lblPhone: "رقم هاتف الطالب", lblParent: "رقم هاتف ولي الأمر",
-                btnNext: "التالي", btnPrev: "السابق", submit: "تأكيد الحجز",
-                lblCancelCode: "كود الطالب السري", btnCancelSubmit: "تأكيد الإلغاء",
-                cancelSuccess: "تم إلغاء الحجز بنجاح.", cancelError: "الكود غير صحيح أو الحجز غير موجود.",
-                alreadyCanceled: "هذا الحجز ملغي بالفعل!", alertDuplicate: "عذراً، أنت مسجل بالفعل في حجز ساري!",
-                cardHeader: "أمنية سعيد - حجز مؤكد", statusValid: "مؤكد", cardLblName: "الاسم:", cardLblRegion: "المنطقة:", cardLblCode: "كود الطالب السري",
-                idNote: "احتفظ بصورة هذه البطاقة لدخول الحصة الأولى!",
-                btnDownload: "حفظ كصورة", alertNameRegion: "يرجى إدخال الاسم واختيار المنطقة"
+                title: "تسجيل أكونت المنصة",
+                subtitle: "دفعة 2027",
+                chooseBook: "تسجيل حساب جديد",
+                chooseCancel: "إلغاء حساب سابق",
+                step1Lbl: "البيانات الأساسية",
+                step2Lbl: "بيانات التواصل",
+                lblName: "اسم الطالب ثلاثي",
+                lblRegion: "المنطقة",
+                lblSubject: "المادة",
+                lblGrade: "المرحلة الدراسية",
+                optSelectRegion: "-- اختر المنطقة --",
+                lblPhone: "رقم هاتف الطالب",
+                lblParent: "رقم هاتف ولي الأمر",
+                lblEmail: "البريد الإلكتروني (اختياري)",
+                btnNext: "التالي",
+                btnPrev: "السابق",
+                submit: "تأكيد التسجيل",
+                lblCancelCode: "كود الطالب السري",
+                btnCancelSubmit: "تأكيد الإلغاء",
+                cancelSuccess: "تم إلغاء الحساب بنجاح.",
+                cancelError: "الكود غير صحيح أو الحساب غير موجود.",
+                alreadyCanceled: "هذا الحساب ملغي بالفعل!",
+                alertDuplicate: "عذراً، أنت مسجل بالفعل ولديك حساب ساري!",
+                cardHeader: "أمنية سعيد - حساب مؤكد",
+                statusValid: "مؤكد",
+                cardLblName: "الاسم:",
+                cardLblRegion: "المنطقة:",
+                cardLblSubject: "المادة:",
+                cardLblGrade: "المرحلة:",
+                cardLblCode: "كود الطالب السري",
+                idNote: "احتفظ بصورة هذه البطاقة لدخول المنصة!",
+                btnDownload: "حفظ كصورة",
+                alertNameRegion: "يرجى إدخال الاسم واختيار المنطقة والمادة والمرحلة"
             }
         },
         en: {
             teacherName: "Mrs. Omnia Said",
-            teacherTagline: "Creators of Excellence in Chemistry & Integrated Sciences",
+            teacherTagline: "Creator of Excellence in Chemistry & Integrated Sciences | Your Guide to the Top",
             teacherBio: "An inspiring educational journey spanning over 14 years... combining the genius of chemistry with the wonder of integrated sciences. We don't just memorize equations; we build scientific awareness and exceptional excellence that guarantees top marks.",
             qualTitle: "Academic Qualifications & Experience",
             qualList: [
@@ -481,26 +344,48 @@
                 { name: "WhatsApp", icon: "fab fa-whatsapp", url: "https://whatsapp.com/channel/0029Vb6T7xGHbFVAmrhO5k3r" }
             ],
             footerCopy: "© 2027 All Rights Reserved — Omnia Said",
-            langBtnText: "AR", stopSound: "Mute Sound", playSound: "Play Sound",
+            langBtnText: "AR",
+            stopSound: "Mute Sound",
+            playSound: "Play Sound",
             modal: {
-                title: "Manage Booking", subtitle: "1st Secondary Grade - Integrated Sciences",
-                chooseBook: "New Booking", chooseCancel: "Cancel Booking",
-                step1Lbl: "Basic Info", step2Lbl: "Contact Info",
-                lblName: "Student's Full Name", lblRegion: "Region", optSelectRegion: "-- Select Region --",
-                lblPhone: "Student's Phone Number", lblParent: "Parent's Phone Number",
-                btnNext: "Next", btnPrev: "Previous", submit: "Confirm Booking",
-                lblCancelCode: "Secret Student Code", btnCancelSubmit: "Confirm Cancellation",
-                cancelSuccess: "Booking successfully canceled.", cancelError: "Invalid code or booking not found.",
-                alreadyCanceled: "This booking is already canceled!", alertDuplicate: "Sorry, you are already registered with a valid booking!",
-                cardHeader: "Omnia Said - Confirmed", statusValid: "Confirmed", cardLblName: "Name:", cardLblRegion: "Region:", cardLblCode: "Secret Student Code",
-                idNote: "Keep a screenshot of this ID to enter the first class!",
-                btnDownload: "Save as Image", alertNameRegion: "Please enter your name and select a region"
+                title: "Platform Account Registration",
+                subtitle: "Batch 2027",
+                chooseBook: "New Account Registration",
+                chooseCancel: "Cancel Previous Account",
+                step1Lbl: "Basic Info",
+                step2Lbl: "Contact Info",
+                lblName: "Student's Full Name",
+                lblRegion: "Region",
+                lblSubject: "Subject",
+                lblGrade: "Grade Level",
+                optSelectRegion: "-- Select Region --",
+                lblPhone: "Student's Phone Number",
+                lblParent: "Parent's Phone Number",
+                lblEmail: "Email Address (Optional)",
+                btnNext: "Next",
+                btnPrev: "Previous",
+                submit: "Confirm Registration",
+                lblCancelCode: "Secret Student Code",
+                btnCancelSubmit: "Confirm Cancellation",
+                cancelSuccess: "Account successfully canceled.",
+                cancelError: "Invalid code or account not found.",
+                alreadyCanceled: "This account is already canceled!",
+                alertDuplicate: "Sorry, you are already registered with a valid account!",
+                cardHeader: "Omnia Said - Confirmed",
+                statusValid: "Confirmed",
+                cardLblName: "Name:",
+                cardLblRegion: "Region:",
+                cardLblSubject: "Subject:",
+                cardLblGrade: "Grade:",
+                cardLblCode: "Secret Student Code",
+                idNote: "Keep a screenshot of this ID to access the platform!",
+                btnDownload: "Save as Image",
+                alertNameRegion: "Please enter name, region, subject and grade level"
             }
         }
     };
 
     let currentLang = localStorage.getItem('preferredLang') || 'ar';
-    
     function updateUI(lang) {
         const t = translations[lang];
         document.getElementById('teacherName').innerText = t.teacherName;
@@ -511,388 +396,206 @@
         document.getElementById('copyrightText').innerText = t.footerCopy;
         document.getElementById('stopSoundText').innerText = isMusicPlaying ? t.stopSound : t.playSound;
         document.getElementById('langText').innerText = t.langBtnText;
-        
         document.getElementById('modalTitle').innerText = t.modal.title;
         document.getElementById('modalSubtitle').innerText = t.modal.subtitle;
         document.getElementById('txtChooseBook').innerText = t.modal.chooseBook;
         document.getElementById('txtChooseCancel').innerText = t.modal.chooseCancel;
         document.getElementById('lblStep1').innerText = t.modal.step1Lbl;
         document.getElementById('lblStep2').innerText = t.modal.step2Lbl;
-
         document.getElementById('lblStudentName').innerHTML = `<i class="fas fa-user"></i> ${t.modal.lblName}`;
         document.getElementById('lblRegion').innerHTML = `<i class="fas fa-map-marker-alt"></i> ${t.modal.lblRegion}`;
+        document.getElementById('lblSubject').innerHTML = `<i class="fas fa-flask"></i> ${t.modal.lblSubject}`;
+        document.getElementById('lblGrade').innerHTML = `<i class="fas fa-graduation-cap"></i> ${t.modal.lblGrade}`;
         document.getElementById('optSelectRegion').innerText = t.modal.optSelectRegion;
         document.getElementById('lblStudentPhone').innerHTML = `<i class="fas fa-mobile-alt"></i> ${t.modal.lblPhone}`;
         document.getElementById('lblParentPhone').innerHTML = `<i class="fas fa-phone-alt"></i> ${t.modal.lblParent}`;
-        
+        document.getElementById('lblEmail').innerHTML = `<i class="fas fa-envelope"></i> ${t.modal.lblEmail}`;
         document.getElementById('btnNextStep').innerHTML = lang === 'ar' ? `${t.modal.btnNext} <i class="fas fa-arrow-left"></i>` : `${t.modal.btnNext} <i class="fas fa-arrow-right"></i>`;
         document.getElementById('btnPrevStep').innerHTML = lang === 'ar' ? `<i class="fas fa-arrow-right"></i> ${t.modal.btnPrev}` : `<i class="fas fa-arrow-left"></i> ${t.modal.btnPrev}`;
         document.getElementById('btnSubmitForm').innerHTML = `<i class="fas fa-check"></i> ${t.modal.submit}`;
-
         document.getElementById('lblCancelCode').innerHTML = `<i class="fas fa-key"></i> ${t.modal.lblCancelCode}`;
         document.getElementById('btnSubmitCancel').innerHTML = `<i class="fas fa-trash-alt"></i> ${t.modal.btnCancelSubmit}`;
-
         document.getElementById('cardHeaderTitle').innerText = t.modal.cardHeader;
         document.getElementById('lblStatusValid').innerText = t.modal.statusValid;
         document.getElementById('lblCardName').innerText = t.modal.cardLblName;
         document.getElementById('lblCardRegion').innerText = t.modal.cardLblRegion;
+        document.getElementById('lblCardSubject').innerText = t.modal.cardLblSubject;
+        document.getElementById('lblCardGrade').innerText = t.modal.cardLblGrade;
         document.getElementById('lblCardCode').innerText = t.modal.cardLblCode;
         document.getElementById('idNoteText').innerText = t.modal.idNote;
         document.getElementById('lblDownloadBtn').innerText = t.modal.btnDownload;
-        
         const qualGrid = document.getElementById('qualificationsGrid');
         qualGrid.innerHTML = '';
-        t.qualList.forEach(q => {
-            const card = document.createElement('div');
-            card.className = 'qual-card fade-up';
-            card.innerHTML = `<i class="${q.icon}"></i><h3>${q.title}</h3><p>${q.desc}</p>`;
-            qualGrid.appendChild(card);
-        });
-        
+        t.qualList.forEach(q => { const card = document.createElement('div'); card.className = 'qual-card fade-up'; card.innerHTML = `<i class="${q.icon}"></i><h3>${q.title}</h3><p>${q.desc}</p>`; qualGrid.appendChild(card); });
         const links = document.getElementById('linksContainer');
         links.innerHTML = '';
-        t.buttons.forEach(btn => {
-            const a = document.createElement('a');
-            a.href = btn.url; a.target = '_blank';
-            a.className = 'premium-btn';
-            a.innerHTML = `<i class="${btn.icon}"></i><span>${btn.name}</span>`;
-            links.appendChild(a);
-        });
-        
+        t.buttons.forEach(btn => { const a = document.createElement('a'); a.href = btn.url; a.target = '_blank'; a.className = 'premium-btn'; a.innerHTML = `<i class="${btn.icon}"></i><span>${btn.name}</span>`; links.appendChild(a); });
         document.documentElement.lang = lang;
         document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
         localStorage.setItem('preferredLang', lang);
-        
         const progress = document.getElementById('progressBar');
-        if(lang === 'en') { progress.style.right = 'auto'; progress.style.left = '30px'; } 
-        else { progress.style.left = 'auto'; progress.style.right = '30px'; }
+        if(lang === 'en') { progress.style.right = 'auto'; progress.style.left = '30px'; } else { progress.style.left = 'auto'; progress.style.right = '30px'; }
         observeFade();
     }
-    
-    document.getElementById('langToggleBtn').addEventListener('click', () => { 
-        currentLang = currentLang === 'ar' ? 'en' : 'ar'; 
-        updateUI(currentLang); 
-    });
-
+    document.getElementById('langToggleBtn').addEventListener('click', () => { currentLang = currentLang === 'ar' ? 'en' : 'ar'; updateUI(currentLang); });
     window.addEventListener('load', () => {
         const preloader = document.getElementById('preloader');
         if (preloader) { preloader.classList.add('fade-out'); setTimeout(() => preloader.remove(), 800); }
         document.body.style.opacity = '1';
         observeFade(); initAutoMusic();
-        
         const img = document.getElementById('teacherPhoto');
         const wrapper = document.getElementById('teacherImgWrapper');
-        mediumZoom(img, { margin: 24, background: 'rgba(10, 10, 12, 0.95)' });
-        VanillaTilt.init(wrapper, { max: 8, speed: 400, "scale": 1.03 });
+        mediumZoom(img, { margin: 24, background: 'rgba(10,10,12,0.95)' });
+        VanillaTilt.init(wrapper, { max: 8, speed: 400, scale: 1.03 });
     });
-
     function observeFade() {
         const faders = document.querySelectorAll('.fade-up');
-        const obs = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { 
-                if (entry.isIntersecting) { entry.target.classList.add('visible'); obs.unobserve(entry.target); } 
-            });
-        }, { threshold: 0.1 });
+        const obs = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); obs.unobserve(entry.target); } }); }, { threshold: 0.1 });
         faders.forEach(el => obs.observe(el));
     }
-
     const music = document.getElementById('backgroundMusic');
     const stopBtn = document.getElementById('stopSoundBtn');
-    let isMusicPlaying = false; let audioUnlocked = false;
-
+    let isMusicPlaying = false, audioUnlocked = false;
     function initAutoMusic() {
         music.volume = 0.25;
-        const tryPlay = () => {
-            if (!audioUnlocked) {
-                music.play().then(() => { isMusicPlaying = true; audioUnlocked = true; updateStopButtonText();
-                }).catch(e => { document.addEventListener('click', tryPlay, { once: true }); });
-            }
-        };
+        const tryPlay = () => { music.play().then(() => { isMusicPlaying = true; audioUnlocked = true; stopBtn.classList.add('visible'); stopBtn.querySelector('i').classList.remove('fa-volume-mute'); stopBtn.querySelector('i').classList.add('fa-volume-up'); document.getElementById('stopSoundText').innerText = translations[currentLang].stopSound; }).catch(() => {}); };
         tryPlay();
-    }
-    setTimeout(() => { stopBtn.classList.add('visible'); }, 10000);
-
-    function updateStopButtonText() {
-        const t = translations[currentLang];
-        document.getElementById('stopSoundText').innerText = isMusicPlaying ? t.stopSound : t.playSound;
-        stopBtn.classList.toggle('muted', !isMusicPlaying);
+        document.body.addEventListener('click', tryPlay, { once: true });
+        document.body.addEventListener('touchstart', tryPlay, { once: true });
     }
     stopBtn.addEventListener('click', () => {
-        if (isMusicPlaying) { music.pause(); isMusicPlaying = false; } 
-        else { music.volume = 0.25; music.play().then(() => { isMusicPlaying = true; }); }
-        updateStopButtonText();
+        if (!audioUnlocked) return;
+        if (isMusicPlaying) { music.pause(); isMusicPlaying = false; stopBtn.querySelector('i').classList.remove('fa-volume-up'); stopBtn.querySelector('i').classList.add('fa-volume-mute'); stopBtn.classList.add('muted'); document.getElementById('stopSoundText').innerText = translations[currentLang].playSound; }
+        else { music.play().catch(e=>console.log(e)); isMusicPlaying = true; stopBtn.querySelector('i').classList.remove('fa-volume-mute'); stopBtn.querySelector('i').classList.add('fa-volume-up'); stopBtn.classList.remove('muted'); document.getElementById('stopSoundText').innerText = translations[currentLang].stopSound; }
     });
 
-    // ====== نظام إدارة الحجز (مربوط بـ Firebase) ======
-    const bookingImg = document.getElementById('bookingTriggerImg');
-    const modal = document.getElementById('bookingModal');
-    const closeBtn = document.getElementById('closeModalBtn');
-    
-    const actionSelection = document.getElementById('actionSelectionContainer');
-    const bookingFormContainer = document.getElementById('bookingFormContainer');
-    const cancelContainer = document.getElementById('cancelContainer');
-    const idCardWrapper = document.getElementById('idCardWrapper');
-    
-    const btnChooseBook = document.getElementById('btnChooseBook');
-    const btnChooseCancel = document.getElementById('btnChooseCancel');
-    
-    const form = document.getElementById('bookingForm');
-    const step1 = document.getElementById('step1');
-    const step2 = document.getElementById('step2');
-    const progressBar = document.getElementById('progressBar');
-    const stepInd1 = document.getElementById('stepIndicator1');
-    const stepInd2 = document.getElementById('stepIndicator2');
-    const cancelMsg = document.getElementById('cancelMessage');
+    // منطق التسجيل والإلغاء مع الحقول الجديدة
+    const modalEl = document.getElementById('bookingModal');
+    const bookingTrigger = document.getElementById('bookingTriggerImg');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const actionSelectionDiv = document.getElementById('actionSelectionContainer');
+    const bookingFormContainerDiv = document.getElementById('bookingFormContainer');
+    const cancelContainerDiv = document.getElementById('cancelContainer');
+    const idCardWrapperDiv = document.getElementById('idCardWrapper');
+    const btnChooseBookBtn = document.getElementById('btnChooseBook');
+    const btnChooseCancelBtn = document.getElementById('btnChooseCancel');
+    const btnNextStep = document.getElementById('btnNextStep');
+    const btnPrevStep = document.getElementById('btnPrevStep');
+    const btnSubmitForm = document.getElementById('btnSubmitForm');
+    const btnSubmitCancel = document.getElementById('btnSubmitCancel');
+    const progressBarDiv = document.getElementById('progressBar');
+    const step1Div = document.getElementById('step1');
+    const step2Div = document.getElementById('step2');
+    const stepInd1Span = document.getElementById('stepIndicator1');
+    const stepInd2Span = document.getElementById('stepIndicator2');
+    const displayCardNameSpan = document.getElementById('displayCardName');
+    const displayCardRegionSpan = document.getElementById('displayCardRegion');
+    const displayCardSubjectSpan = document.getElementById('displayCardSubject');
+    const displayCardGradeSpan = document.getElementById('displayCardGrade');
+    const displayCardCodeSpan = document.getElementById('displayCardCode');
+    const downloadIdBtn = document.getElementById('downloadIdBtn');
+    let currentStepNum = 1;
 
-    bookingImg.addEventListener('click', () => { modal.classList.add('active'); resetToSelection(); });
-    closeBtn.addEventListener('click', () => { modal.classList.remove('active'); });
-    modal.addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('active'); });
-
+    bookingTrigger.addEventListener('click', () => { modalEl.classList.add('active'); resetToSelection(); });
+    closeModalBtn.addEventListener('click', () => { modalEl.classList.remove('active'); resetToSelection(); });
+    modalEl.addEventListener('click', (e) => { if(e.target === modalEl) { modalEl.classList.remove('active'); resetToSelection(); } });
     function resetToSelection() {
-        actionSelection.style.display = 'block';
-        bookingFormContainer.style.display = 'none';
-        cancelContainer.style.display = 'none';
-        idCardWrapper.style.display = 'none';
-        cancelMsg.className = 'cancel-msg';
-        cancelMsg.style.display = 'none';
-        document.getElementById('cancelCodeInput').value = '';
+        actionSelectionDiv.style.display = 'block';
+        bookingFormContainerDiv.style.display = 'none';
+        cancelContainerDiv.style.display = 'none';
+        idCardWrapperDiv.style.display = 'none';
+        document.getElementById('bookingForm').reset();
+        currentStepNum = 1;
+        updateStepUI();
+        document.getElementById('cancelMessage').style.display = 'none';
+        document.getElementById('cancelMessage').innerHTML = '';
     }
-
-    btnChooseBook.addEventListener('click', () => {
-        actionSelection.style.display = 'none';
-        bookingFormContainer.style.display = 'block';
-        form.reset();
-        step1.classList.add('active'); step2.classList.remove('active');
-        progressBar.style.width = '0%';
-        stepInd1.classList.add('active'); stepInd1.classList.remove('completed'); stepInd2.classList.remove('active');
-    });
-
-    btnChooseCancel.addEventListener('click', () => {
-        actionSelection.style.display = 'none';
-        cancelContainer.style.display = 'block';
-    });
-
-    document.getElementById('btnNextStep').addEventListener('click', () => {
+    btnChooseBookBtn.addEventListener('click', () => { actionSelectionDiv.style.display = 'none'; bookingFormContainerDiv.style.display = 'block'; currentStepNum = 1; updateStepUI(); });
+    btnChooseCancelBtn.addEventListener('click', () => { actionSelectionDiv.style.display = 'none'; cancelContainerDiv.style.display = 'block'; });
+    function updateStepUI() {
+        if(currentStepNum === 1) {
+            step1Div.classList.add('active'); step2Div.classList.remove('active');
+            stepInd1Span.classList.add('active'); stepInd1Span.classList.remove('completed');
+            stepInd2Span.classList.remove('active', 'completed');
+            progressBarDiv.style.width = '0%';
+        } else {
+            step1Div.classList.remove('active'); step2Div.classList.add('active');
+            stepInd1Span.classList.remove('active'); stepInd1Span.classList.add('completed');
+            stepInd2Span.classList.add('active'); stepInd2Span.classList.remove('completed');
+            progressBarDiv.style.width = '50%';
+        }
+    }
+    btnNextStep.addEventListener('click', () => {
         const name = document.getElementById('studentName').value.trim();
         const region = document.getElementById('studentRegion').value;
-        if(name === '' || region === '') {
+        const subject = document.getElementById('studentSubject').value;
+        const grade = document.getElementById('studentGrade').value;
+        if(!name || !region || !subject || !grade) {
             alert(translations[currentLang].modal.alertNameRegion);
             return;
         }
-        step1.classList.remove('active'); step2.classList.add('active');
-        progressBar.style.width = '100%';
-        stepInd1.classList.remove('active'); stepInd1.classList.add('completed'); stepInd2.classList.add('active');
+        currentStepNum = 2;
+        updateStepUI();
     });
-
-    document.getElementById('btnPrevStep').addEventListener('click', () => {
-        step2.classList.remove('active'); step1.classList.add('active');
-        progressBar.style.width = '0%';
-        stepInd2.classList.remove('active'); stepInd1.classList.remove('completed'); stepInd1.classList.add('active');
-    });
-
-    // تأكيد الحجز (التخزين على Firebase)
-    form.addEventListener('submit', (e) => {
+    btnPrevStep.addEventListener('click', () => { currentStepNum = 1; updateStepUI(); });
+    btnSubmitForm.addEventListener('click', async (e) => {
         e.preventDefault();
-        const sName = document.getElementById('studentName').value.trim();
-        const sRegion = document.getElementById('studentRegion').value;
-        const sPhone = document.getElementById('studentPhone').value.trim();
-        const pPhone = document.getElementById('parentPhone').value.trim();
-        const date = new Date().toLocaleString('ar-EG');
-        
-        const submitBtn = document.getElementById('btnSubmitForm');
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التسجيل...';
-
-        // قراءة الحجوزات الموجودة أولاً للتأكد من عدم التكرار
-        db.ref('bookings').once('value').then((snapshot) => {
-            let bookingsObj = snapshot.val() || {};
-            let existingKey = null;
-            let isDuplicateValid = false;
-
-            // البحث إذا كان الطالب مسجل مسبقاً
-            for (let key in bookingsObj) {
-                if (bookingsObj[key].studentPhone === sPhone || bookingsObj[key].name === sName) {
-                    existingKey = key;
-                    if (bookingsObj[key].status === 'valid') {
-                        isDuplicateValid = true;
-                    }
-                    break;
-                }
-            }
-
-            if (isDuplicateValid) {
-                alert(translations[currentLang].modal.alertDuplicate);
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = `<i class="fas fa-check"></i> ${translations[currentLang].modal.submit}`;
-                return;
-            }
-
-            let studentCode = "";
-            if (existingKey) {
-                // لو كان حجزه ملغي، حدث بياناته وفعله تاني بنفس الكود
-                studentCode = bookingsObj[existingKey].code;
-                db.ref('bookings/' + studentCode).update({
-                    name: sName,
-                    region: sRegion,
-                    parentPhone: pPhone,
-                    date: date,
-                    status: 'valid'
-                }).then(() => finishBookingProcess(sName, sRegion, studentCode, submitBtn));
-            } else {
-                // طالب جديد
-                let nextId = (Object.keys(bookingsObj).length + 1).toString().padStart(3, '0');
-                let randomSerial = Math.random().toString(36).substring(2, 6).toUpperCase();
-                studentCode = `OS-${nextId}-${randomSerial}`;
-                
-                db.ref('bookings/' + studentCode).set({
-                    code: studentCode,
-                    name: sName,
-                    region: sRegion,
-                    studentPhone: sPhone,
-                    parentPhone: pPhone,
-                    date: date,
-                    status: 'valid'
-                }).then(() => finishBookingProcess(sName, sRegion, studentCode, submitBtn));
-            }
-        }).catch((error) => {
-            alert("حدث خطأ أثناء الاتصال بالخادم.");
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = `<i class="fas fa-check"></i> ${translations[currentLang].modal.submit}`;
-        });
+        const name = document.getElementById('studentName').value.trim();
+        const region = document.getElementById('studentRegion').value;
+        const subject = document.getElementById('studentSubject').value;
+        const grade = document.getElementById('studentGrade').value;
+        const studentPhone = document.getElementById('studentPhone').value.trim();
+        const parentPhone = document.getElementById('parentPhone').value.trim();
+        const email = document.getElementById('studentEmail').value.trim();
+        if(!name || !region || !subject || !grade || !studentPhone || !parentPhone) {
+            alert(translations[currentLang].modal.alertNameRegion);
+            return;
+        }
+        const studentsRef = db.ref('students');
+        const snapshot = await studentsRef.orderByChild('phone').equalTo(studentPhone).once('value');
+        let existing = false;
+        snapshot.forEach(child => { if(child.val().isActive !== false) existing = true; });
+        if(existing) { alert(translations[currentLang].modal.alertDuplicate); return; }
+        let maxId = 0;
+        const allSnapshot = await studentsRef.once('value');
+        allSnapshot.forEach(child => { let id = parseInt(child.key); if(id > maxId) maxId = id; });
+        const newCode = maxId + 1;
+        const newStudent = { name, region, subject, grade, phone: studentPhone, parentPhone, email: email || null, code: newCode, isActive: true, registeredAt: Date.now() };
+        await studentsRef.child(newCode.toString()).set(newStudent);
+        displayCardNameSpan.innerText = name;
+        displayCardRegionSpan.innerText = region;
+        displayCardSubjectSpan.innerText = subject;
+        displayCardGradeSpan.innerText = grade;
+        displayCardCodeSpan.innerText = newCode;
+        bookingFormContainerDiv.style.display = 'none';
+        idCardWrapperDiv.style.display = 'block';
     });
-
-    function finishBookingProcess(sName, sRegion, studentCode, btn) {
-        document.getElementById('displayCardName').innerText = sName;
-        document.getElementById('displayCardRegion').innerText = sRegion;
-        document.getElementById('displayCardCode').innerText = studentCode;
-        
-        btn.disabled = false;
-        btn.innerHTML = `<i class="fas fa-check"></i> ${translations[currentLang].modal.submit}`;
-
-        bookingFormContainer.style.display = 'none';
-        idCardWrapper.style.display = 'block';
+    btnSubmitCancel.addEventListener('click', async () => {
+        const code = document.getElementById('cancelCodeInput').value.trim();
+        if(!code) { alert(translations[currentLang].modal.lblCancelCode); return; }
+        const studentRef = db.ref('students/' + code);
+        const snapshot = await studentRef.once('value');
+        if(!snapshot.exists()) { showCancelMessage(translations[currentLang].modal.cancelError, 'error'); return; }
+        const student = snapshot.val();
+        if(student.isActive === false) { showCancelMessage(translations[currentLang].modal.alreadyCanceled, 'error'); return; }
+        await studentRef.update({ isActive: false });
+        showCancelMessage(translations[currentLang].modal.cancelSuccess, 'success');
+    });
+    function showCancelMessage(msg, type) {
+        const msgDiv = document.getElementById('cancelMessage');
+        msgDiv.innerHTML = msg;
+        msgDiv.className = 'cancel-msg ' + type;
+        setTimeout(() => { msgDiv.style.display = 'none'; msgDiv.innerHTML = ''; msgDiv.className = 'cancel-msg'; }, 3000);
     }
-
-    // تأكيد الإلغاء (من Firebase)
-    document.getElementById('btnSubmitCancel').addEventListener('click', () => {
-        const codeInput = document.getElementById('cancelCodeInput').value.trim();
-        cancelMsg.style.display = 'block';
-        cancelMsg.className = 'cancel-msg';
-        cancelMsg.innerText = 'جاري التحقق...';
-
-        db.ref('bookings/' + codeInput).once('value').then((snapshot) => {
-            if (snapshot.exists()) {
-                let booking = snapshot.val();
-                if (booking.status === 'canceled') {
-                    cancelMsg.className = 'cancel-msg error';
-                    cancelMsg.innerText = translations[currentLang].modal.alreadyCanceled;
-                } else {
-                    db.ref('bookings/' + codeInput).update({ status: 'canceled' }).then(() => {
-                        cancelMsg.className = 'cancel-msg success';
-                        cancelMsg.innerText = translations[currentLang].modal.cancelSuccess;
-                    });
-                }
-            } else {
-                cancelMsg.className = 'cancel-msg error';
-                cancelMsg.innerText = translations[currentLang].modal.cancelError;
-            }
-        }).catch(() => {
-            cancelMsg.className = 'cancel-msg error';
-            cancelMsg.innerText = 'حدث خطأ في الاتصال.';
-        });
-    });
-
-    // حفظ البطاقة
-    document.getElementById('downloadIdBtn').addEventListener('click', () => {
-        const cardElement = document.getElementById('studentIdCard');
-        html2canvas(cardElement, { 
-            backgroundColor: '#050505', 
-            scale: 2,
-            useCORS: true,
-            allowTaint: true
-        }).then(canvas => {
+    downloadIdBtn.addEventListener('click', () => {
+        const element = document.getElementById('studentIdCard');
+        html2canvas(element, { scale: 2, backgroundColor: '#050505' }).then(canvas => {
             const link = document.createElement('a');
-            link.download = `بطاقة_حجز_${document.getElementById('displayCardName').innerText}.png`;
+            link.download = 'student_id.png';
             link.href = canvas.toDataURL();
             link.click();
         });
     });
-
-    // الإدارة السرية ومسح البيانات (مربوطة بالسيرفر السحابي)
-    const copyrightEl = document.getElementById('copyrightText');
-    copyrightEl.addEventListener('click', () => {
-        const pass = prompt("الرجاء إدخال كلمة المرور:"); 
-        
-        if (pass === "0000") {
-            if(confirm("هل أنت متأكد من مسح جميع بيانات الحجوزات نهائياً من السيرفر؟")) {
-                db.ref('bookings').remove().then(() => alert("تم مسح جميع البيانات بنجاح!"));
-            }
-            return;
-        }
-
-        if (pass === "20082007") {
-            db.ref('bookings').once('value').then((snapshot) => {
-                let data = snapshot.val();
-                if (!data) { alert("لا توجد بيانات مسجلة حتى الآن."); return; }
-                
-                // تحويل بيانات Firebase إلى مصفوفة (Array)
-                let bookings = Object.values(data);
-                
-                let excelContent = `
-                <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
-                <head><meta charset="UTF-8"></head>
-                <body>
-                    <table border="1" style="text-align: right; direction: rtl; font-family: Arial, sans-serif; border-collapse: collapse; width: 100%;">
-                        <thead>
-                            <tr style="background-color: #2c3e50; color: #ffffff; font-weight: bold; font-size: 16px; height: 45px;">
-                                <th style="padding: 10px; border: 1px solid #bdc3c7;">كود الطالب</th>
-                                <th style="padding: 10px; border: 1px solid #bdc3c7;">اسم الطالب</th>
-                                <th style="padding: 10px; border: 1px solid #bdc3c7;">المنطقة</th>
-                                <th style="padding: 10px; border: 1px solid #bdc3c7;">هاتف الطالب</th>
-                                <th style="padding: 10px; border: 1px solid #bdc3c7;">هاتف ولي الأمر</th>
-                                <th style="padding: 10px; border: 1px solid #bdc3c7;">تاريخ الحجز</th>
-                                <th style="padding: 10px; border: 1px solid #bdc3c7;">حالة الحجز</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                `;
-                
-                bookings.forEach((b, index) => {
-                    let rowBg = index % 2 === 0 ? "#f9f9f9" : "#ffffff";
-                    let isCanceled = b.status === 'canceled';
-                    let statusText = isCanceled ? (currentLang === 'ar' ? 'ملغي' : 'Canceled') : (currentLang === 'ar' ? 'ساري' : 'Valid');
-                    let statusColor = isCanceled ? '#c0392b' : '#27ae60';
-                    let statusBg = isCanceled ? '#fdeaea' : '#eafaf1';
-
-                    excelContent += `
-                        <tr style="background-color: ${rowBg}; text-align: center; height: 35px;">
-                            <td style="padding: 8px; border: 1px solid #bdc3c7; font-weight: bold; color: #2980b9;">${b.code}</td>
-                            <td style="padding: 8px; border: 1px solid #bdc3c7; font-weight: bold; color: #2c3e50;">${b.name}</td>
-                            <td style="padding: 8px; border: 1px solid #bdc3c7;">${b.region}</td>
-                            <td style="padding: 8px; border: 1px solid #bdc3c7; mso-number-format:'\\@';">${b.studentPhone}</td>
-                            <td style="padding: 8px; border: 1px solid #bdc3c7; mso-number-format:'\\@';">${b.parentPhone}</td>
-                            <td style="padding: 8px; border: 1px solid #bdc3c7; color: #7f8c8d;">${b.date}</td>
-                            <td style="padding: 8px; border: 1px solid #bdc3c7; background-color: ${statusBg}; color: ${statusColor}; font-weight: bold;">${statusText}</td>
-                        </tr>
-                    `;
-                });
-
-                excelContent += `</tbody></table></body></html>`;
-
-                const blob = new Blob([excelContent], { type: 'application/vnd.ms-excel' });
-                const link = document.createElement("a");
-                link.href = URL.createObjectURL(blob);
-                link.download = "سجل_حجوزات_أمنية_سعيد.xls";
-                link.style.display = 'none';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }).catch(() => {
-                alert("حدث خطأ أثناء جلب البيانات من السيرفر.");
-            });
-        }
-    });
-
     updateUI(currentLang);
 </script>
 </body>
